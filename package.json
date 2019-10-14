@@ -1,0 +1,15 @@
+{
+  "name": "musical_breakout",
+  "version": "1.0.0",
+  "description": "classic breakout with custom sounds triggered by gameplay",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack --watch --mode=development"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.41.1",
+    "webpack-cli": "^3.3.9"
+  }
+}
