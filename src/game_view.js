@@ -15,14 +15,11 @@ class GameView {
         }, 20);
     }
 
-    stop(){
-        window.clearInterval()
-    }
+  
 
     bindKeyHandlers(){
         let gameV = this;
         key("space", function () { gameV.game.ball.launch() });
-        key("q", function () { gameV.stop() });
 
         // key("left", function () { gameV.game.ship.power([-0.5, 0]) });
         // key("a", function () { gameV.game.ship.power([0, 0.5]) });

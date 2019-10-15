@@ -24,7 +24,8 @@ class Game {
         this.NUM_BRICKS = 70;
         this.bricks = [];
         this.ball = new Ball(this);
-        this.addBricks()
+        this.addBricks();
+        this.inMotion = false
     }
 
     addBricks(){
@@ -45,9 +46,28 @@ class Game {
         }
     }
 
+    drawBackground(ctx){
+        // black background
+        ctx.beginPath();
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = "black";
+        ctx.fillStyle = "black";
+        ctx.rect(0, 0, 900, 650);
+        ctx.stroke();
+        ctx.fill();
+        // white background
+        ctx.beginPath();
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = "white";
+        ctx.fillStyle = "white";
+        ctx.rect(10, 10, 880, 630);
+        ctx.stroke();
+        ctx.fill();
+    }
+
     draw(ctx){
         ctx.clearRect(0, 0, 900, 650);
-
+        this.drawBackground(ctx);
         this.bricks.forEach(brick => {
             brick.draw(ctx)
         })
@@ -58,10 +78,11 @@ class Game {
         for (let i = 0; i < this.bricks.length; i++) {
             let currentBrick = this.bricks[i]
             if (this.ball.isCollidedWith(currentBrick)) {
-                console.log("hit collide")
-
                 currentBrick.collideWith();
-            };
+            } 
+            if (this.ball.hitWall()) {
+                this.ball.bounce()
+            }
         }
     }
 
@@ -71,9 +92,18 @@ class Game {
     }
 
     remove(brick){
-        // let idx = this.bricks.indexOf(brick);
-        // this.bricks.splice(idx, 1);
-        console.log("hit remove")
+        let idx = this.bricks.indexOf(brick);
+        this.bricks.splice(idx, 1);
+        let currentX = this.ball.vel[0]
+        let currentY = this.ball.vel[1]
+        if (brick.pos[0] === 100 || brick.pos[0] === 730){
+            this.ball.vel = [-currentX, currentY]
+            return
+        }
+        if (brick.pos[1] === 100 || brick.pos[1] === 280){
+            this.ball.vel = [currentX, -currentY]
+            return
+        }
     }
 }
 

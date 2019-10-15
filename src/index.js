@@ -10,7 +10,4 @@ document.addEventListener("DOMContentLoaded", () => {
     let gameV = new GameView(new Game(), ctx);
     gameV.start();
 
-    // let game = new Game();
-    // game.addBricks();
-    // game.draw(ctx);
 })
