@@ -22,7 +22,9 @@ class GameView {
         key("space", function () { gameV.game.ball.launch() });
 
         key("left", function () { gameV.game.paddle.move(-30, gameV.ctx) });
+        key("a", function () { gameV.game.paddle.move(-30, gameV.ctx) });
         key("right", function () { gameV.game.paddle.move(30, gameV.ctx) });
+        key("d", function () { gameV.game.paddle.move(30, gameV.ctx) });
         // key("a", function () { gameV.game.ship.power([0, 0.5]) });
 
         // key("right", function () { gameV.game.ship.power([0, -0.5]) });

@@ -103,12 +103,29 @@ class Game {
         this.bricks.splice(idx, 1);
         let currentX = this.ball.vel[0]
         let currentY = this.ball.vel[1]
-        if (brick.pos[0] === 100 || brick.pos[0] === 730){
+
+        // if (brick.pos[0] === 100 || brick.pos[0] === 730){
+        //     this.ball.vel = [-currentX, currentY]
+        //     return
+        // }
+        // if (brick.pos[1] === 100 || brick.pos[1] === 280){
+        //     this.ball.vel = [currentX, -currentY]
+        //     return
+        // }
+        if (this.ball.pos[1] > (brick.pos[1] + brick.dims[1])){
+            this.ball.vel = [currentX, -currentY]
+            return
+        }
+        if (this.ball.pos[1] < brick.pos[1]) {
+            this.ball.vel = [currentX, -currentY]
+            return
+        }
+        if (this.ball.pos[0] < brick.pos[0]) {
             this.ball.vel = [-currentX, currentY]
             return
         }
-        if (brick.pos[1] === 100 || brick.pos[1] === 280){
-            this.ball.vel = [currentX, -currentY]
+        if (this.ball.pos[0] > (brick.pos[0] + brick.dims[0])) {
+            this.ball.vel = [-currentX, currentY]
             return
         }
     }

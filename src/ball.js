@@ -94,7 +94,7 @@ class Ball {
         let currentXpos = this.pos[0];
         let currentYpos = this.pos[1];
         if (currentXvel > 0 && currentYvel > 0 && currentXpos < 890 && currentYpos > 635){
-            //moving towards the right, bouncing on bottom
+            //moving towards the right, towards bottom
             //end round
         }
         if (currentXvel > 0 && currentYvel > 0 && currentXpos > 885 && currentYpos < 640){
@@ -131,8 +131,6 @@ class Ball {
     paddleBounce(){
         let currentXvel = this.vel[0];
         let currentYvel = this.vel[1];
-        let currentXpos = this.pos[0];
-        let currentYpos = this.pos[1];
         if (currentXvel === 0 && currentYvel > 0) {
             // hit paddle moving straight down
             console.log('hit paddle moving down')

@@ -27,12 +27,12 @@ class Paddle {
             let ballX = this.ball.pos[0] + dir
             let ballY = this.ball.pos[1]
             if (paddleX < 25){
-                paddleX = 25
-                ballX = 63
+                paddleX = 25;
+                ballX = 63;
             }
             if (paddleX > 805){
-                paddleX = 805
-                ballX = 842
+                paddleX = 805;
+                ballX = 842;
             }
             this.pos = [paddleX, paddleY]
             this.ball.pos = [ballX, ballY]
@@ -41,6 +41,13 @@ class Paddle {
         } else {
             let paddleX = this.pos[0] + dir;
             let paddleY = this.pos[1]
+            if (paddleX < 25) {
+                paddleX = 25;
+            }
+            if (paddleX > 805) {
+                paddleX = 805;
+
+            }
             this.pos = [paddleX, paddleY]
             this.draw(ctx);
         }
