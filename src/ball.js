@@ -13,6 +13,7 @@ class Ball extends MovingObject {
             "game": game
         })
     }
+
 }
 
 export default Ball;

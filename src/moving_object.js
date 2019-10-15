@@ -33,16 +33,25 @@ class MovingObject {
         this.draw(ctx);
     }
 
-    isCollidedWith(otherObject){
-        // check if two objs are radius*2 or closer?
-        let radiusSum = (this.radius + otherObject.radius);
-
-        let distBetween = Math.sqrt((this.pos[0] - otherObject.pos[0]) ** 2 + (this.pos[1] - otherObject.pos[1]) ** 2);
-        if (distBetween <= radiusSum) {
+    isCollidedWith(brick){
+        let brickX1 = brick.pos[0]
+        let brickX2 = brick.pos[0] + brick.dims[0]
+        let brickY1 = brick.pos[1]
+        let brickY2 = brick.pos[1] + brick.dims[1]
+       
+        if (this.pos[0] + this.radius > brickX1){
             return true;
-        } else {
-            return false;
-        };
+        }
+        if (this.pos[0] - this.radius < brickX2){
+            return true;
+        }
+        if (this.pos[1] + this.radius > brickY1){
+            return true;
+        }
+        if (this.pos[1] - this.radius < brickY2){
+            return true;
+        }
+        return false;
     }
 }
 

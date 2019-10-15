@@ -1,6 +1,7 @@
 import MovingObject from './moving_object';
 import Ball from './ball';
-import Brick from './brick';
+// import Brick from './brick';
+import Game from './game';
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -12,6 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // let testObject = new MovingObject(opts);
     // testObject.draw(ctx);
 
-    let testBrick = new Brick("green", "sound")
-    testBrick.draw(ctx)
+    // let brickOpts = { "color": "blue", "sound": "sound", "pos": [100,100], "game": "game"}
+    // let testBrick = new Brick(brickOpts)
+    // testBrick.draw(ctx)
+
+    let game = new Game();
+    game.addBricks();
+    game.draw(ctx);
 })

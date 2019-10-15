@@ -1,9 +1,12 @@
 
 
 class Brick {
-    constructor(color, sound){
-        this.color = color;
-        this.sound = sound;
+    constructor(options, game){
+        this.color = options["color"];
+        this.sound = options["sound"];
+        this.pos = options["pos"];
+        this.dims = [70, 30]
+        this.game = game;
     }
 
     draw(ctx){
@@ -11,7 +14,7 @@ class Brick {
         ctx.lineWidth = "4";
         ctx.strokeStyle = this.color;
         ctx.fillStyle = this.color;
-        ctx.rect(50, 50, 50, 20);
+        ctx.rect(this.pos[0], this.pos[1], this.dims[0], this.dims[1]);
         ctx.stroke();
         ctx.fill();
     }
