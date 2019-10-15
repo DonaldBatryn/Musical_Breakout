@@ -1,6 +1,7 @@
 import Brick from './brick';
 import { randomColor } from './utils';
 import Ball from './ball';
+import Paddle from './paddle'
 
 // set up some constants that pair a color to a sound
 const COLORS = [
@@ -25,7 +26,8 @@ class Game {
         this.bricks = [];
         this.ball = new Ball(this);
         this.addBricks();
-        this.inMotion = false
+        this.inMotion = false;
+        this.paddle = new Paddle(this, this.ball);
     }
 
     addBricks(){
@@ -72,6 +74,7 @@ class Game {
             brick.draw(ctx)
         })
         this.ball.draw(ctx);
+        this.paddle.draw(ctx);
     }
 
     checkCollisions() {
@@ -82,6 +85,10 @@ class Game {
             } 
             if (this.ball.hitWall()) {
                 this.ball.bounce()
+            }
+            if (this.ball.hitPaddle(this.paddle)){
+ 
+                this.ball.paddleBounce()
             }
         }
     }
