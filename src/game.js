@@ -1,18 +1,19 @@
 import Brick from './brick';
 import { randomColor } from './utils';
+import Ball from './ball';
 
 // set up some constants that pair a color to a sound
 const COLORS = [
     "green",
     "pink",
+    "yellow",
     "blue",
-    "purple",
+    "lightgray",
     "red",
     "orange",
-    "yellow",
-    "gold",
-    "lightgray",
     "violet",
+    "purple",
+    "gold",
     "lightblue"
 ]
 
@@ -22,11 +23,11 @@ class Game {
         this.DIM_Y = 650;
         this.NUM_BRICKS = 70;
         this.bricks = [];
+        this.ball = new Ball(this);
+        this.addBricks()
     }
 
     addBricks(){
-        
-       
         let brickX = 100;
         let brickY = 100;
         while (this.bricks.length < this.NUM_BRICKS) {
@@ -45,11 +46,35 @@ class Game {
     }
 
     draw(ctx){
+        ctx.clearRect(0, 0, 900, 650);
+
         this.bricks.forEach(brick => {
             brick.draw(ctx)
         })
+        this.ball.draw(ctx);
     }
-    
+
+    checkCollisions() {
+        for (let i = 0; i < this.bricks.length; i++) {
+            let currentBrick = this.bricks[i]
+            if (this.ball.isCollidedWith(currentBrick)) {
+                console.log("hit collide")
+
+                currentBrick.collideWith();
+            };
+        }
+    }
+
+    step(ctx){
+        this.ball.move(ctx)
+        this.checkCollisions()
+    }
+
+    remove(brick){
+        // let idx = this.bricks.indexOf(brick);
+        // this.bricks.splice(idx, 1);
+        console.log("hit remove")
+    }
 }
 
 window.randomColor = randomColor;
