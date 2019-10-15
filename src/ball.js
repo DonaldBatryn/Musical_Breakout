@@ -65,6 +65,7 @@ class Ball {
             return true;
         }
         if (this.pos[1] + this.radius >= 640){
+            
             return true;
         }
         if (this.pos[1] - this.radius <= 10){
@@ -93,9 +94,12 @@ class Ball {
         let currentYvel = this.vel[1];
         let currentXpos = this.pos[0];
         let currentYpos = this.pos[1];
-        if (currentXvel > 0 && currentYvel > 0 && currentXpos < 890 && currentYpos > 635){
-            //moving towards the right, towards bottom
-            //end round
+
+        if (currentYpos > 637 && currentYpos < 653) {
+
+            this.game.roundOver = true;
+            this.vel = [0, 0]
+        
         }
         if (currentXvel > 0 && currentYvel > 0 && currentXpos > 885 && currentYpos < 640){
             // moving towards lower-right, bouncing on right wall
