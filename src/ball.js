@@ -53,7 +53,7 @@ class Ball {
             return
         } else {
             this.game.inMotion = true
-            this.vel = [-6, -3];
+            this.vel = [-5, -5];
         }
     }
 

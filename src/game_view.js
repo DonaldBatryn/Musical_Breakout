@@ -5,6 +5,8 @@ class GameView {
         this.game = game;
         this.ctx = ctx;
         this.interval = "";
+        this.leftHeldDown = false;
+        this.rightHeldDown = false;
     }
 
     start() {
@@ -30,7 +32,7 @@ class GameView {
             this.start();
         } else {
             this.gameOver()
-            console.log("Game Over")
+
             // render game over and play again button, score?
         }
     }
@@ -38,16 +40,29 @@ class GameView {
     gameOver(){
         this.game.draw(this.ctx)
         this.ctx.clearRect(15, 400, 870, 240)
+        let gameoverMsg = document.getElementById("gameover-msg");
+        gameoverMsg.classList.remove("hidden")
+    }
+
+    win(){
+
     }
 
     bindKeyHandlers(){
         let gameV = this;
         key("space", function () { gameV.game.ball.launch() });
-
-        key("left", function () { gameV.game.paddle.move(-30, gameV.ctx) });
-        key("a", function () { gameV.game.paddle.move(-30, gameV.ctx) });
-        key("right", function () { gameV.game.paddle.move(30, gameV.ctx) });
-        key("d", function () { gameV.game.paddle.move(30, gameV.ctx) });
+        if (this.game.NUM_LIVES > 0){
+            key("left", function () { gameV.game.paddle.move(-20, gameV.ctx) });
+            key("a", function () { gameV.game.paddle.move(-20, gameV.ctx) });
+            key("right", function () { gameV.game.paddle.move(20, gameV.ctx) });
+            key("d", function () { gameV.game.paddle.move(20, gameV.ctx) });
+        } else {
+            key("left", function () { console.log("muted") });
+            key("a", function () { console.log("muted") });
+            key("right", function () { console.log("muted") });
+            key("d", function () { console.log("muted") });
+        }
+        
     }
 }
 

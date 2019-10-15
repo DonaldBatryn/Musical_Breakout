@@ -1,0 +1,28 @@
+html, body, div, canvas {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.canvas-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.gameover-msg{
+    display: block;
+    position: absolute;
+    color: red;
+    top: 40vh;
+    right: 255px;
+    font-size: 60px
+}
+
+.hidden{
+    display: none;
+}

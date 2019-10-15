@@ -6,10 +6,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="application/javascript" src="keymaster.js"></script>
         <script type="application/javascript" src="main.js"></script>
-        <!-- <link href="css/style.css" rel="stylesheet"> -->
+        <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-       
-        <canvas id="game-canvas" width="900" height="650"></canvas>
+       <div class="canvas-container">
+           <canvas id="game-canvas" width="900" height="650"></canvas>
+           <!-- <div id="win-msg" class="win-message hidden">
+               <h1>YOU WIN</h1>
+           </div> -->
+           <div id="gameover-msg" class="gameover-msg hidden">
+               <h1>GAME OVER</h1>
+           </div>
+       </div>
     </body>
 </html>
