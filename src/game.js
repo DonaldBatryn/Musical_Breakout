@@ -31,10 +31,11 @@ class Game {
         this.ball = new Ball(this);
         this.addBricks();
         this.inMotion = false;
-        this.pointer = new Pointer(this, this.ball);
-        this.paddle = new Paddle(this, this.ball, this.pointer);
+        // this.pointer = new Pointer(this, this.ball);
+        this.paddle = new Paddle(this, this.ball); // took out pointer
         this.paddleVel = [0, 0];
         this.win = false;
+        // this.aiming = true;
     }
 
     addBricks(){
@@ -74,15 +75,18 @@ class Game {
         ctx.fill();
     }
 
-    draw(ctx){
+    draw(ctx){ // took out pointerCtx
         ctx.clearRect(0, 0, 900, 650);
+        // pointerCtx.clearRect(0, 0, 900, 650);
         this.drawBackground(ctx);
         this.bricks.forEach(brick => {
             brick.draw(ctx)
         })
         this.ball.draw(ctx);
         this.paddle.draw(ctx);
-        this.pointer.draw(ctx);
+        // if (this.aiming){
+        //     this.pointer.draw(pointerCtx);
+        // }
     }
 
     checkCollisions() {
@@ -100,7 +104,7 @@ class Game {
         }
     }
 
-    step(ctx){
+    step(ctx){ // took out pointerCtx
         this.ball.move(ctx)
         this.paddle.move(this.paddleVel, ctx)
         this.checkCollisions()
@@ -138,11 +142,12 @@ class Game {
         this.inMotion = false;
         this.ball = [];
         this.paddle = [];
-        this.pointer = [];
+        // this.pointer = [];
         this.ball = new Ball(this);
-        this.pointer = new Pointer(this, this.ball)
+        // this.pointer = new Pointer(this, this.ball)
         this.paddle = new Paddle(this, this.ball, this.pointer);
         this.ball.draw(ctx);
+        this.aiming = true;
         this.paddle.draw(ctx);
     }
 }

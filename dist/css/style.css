@@ -11,10 +11,21 @@ html, body, div, canvas {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    /* margin: 0 auto; */
+}
+
+#game-canvas{
+    position: absolute;
+    
+}
+
+#pointer{
+    position: absolute;
+        
 }
 
 
-.gameover-msg{
+/* .gameover-msg{
     display: block;
     position: absolute;
     color: red;
@@ -25,4 +36,4 @@ html, body, div, canvas {
 
 .hidden{
     display: none;
-}
+} */

@@ -48,12 +48,130 @@ class Ball {
         return false;
     }
 
-    launch() {
-        if (this.game.inMotion) {
+    // launch() {
+    //     if (this.game.inMotion) {
+    //         return
+    //     } else {
+    //         this.game.inMotion = true;
+    //         this.game.aiming = false;
+    //         this.vel = [0, -5];
+    //     }
+    // }
+
+    launch(clickPos){
+        // split x down middle (450), if its 450, X is 0
+        // if its near 0
+        if (this.game.inMotion){
             return
         } else {
-            this.game.inMotion = true
-            this.vel = [0, -5];
+            let ballXPos = this.pos[0]
+            let velX;
+            let velY;
+            if (clickPos[0] >= ballXPos - 837 && clickPos[0] <= ballXPos - 775){
+                velX = -10;
+                velY = -3;
+            }
+            if (clickPos[0] > ballXPos - 775 && clickPos[0] <= ballXPos - 700){
+                velX = -9;
+                velY = -3;
+            }
+            if (clickPos[0] > ballXPos - 700 && clickPos[0] <= ballXPos - 675){
+                velX = -8;
+                velY = -3;
+            }
+            if (clickPos[0] > ballXPos - 675 && clickPos[0] <= ballXPos - 600){
+                velX = -7;
+                velY = -3;
+            }
+            if (clickPos[0] > ballXPos - 600 && clickPos[0] <= ballXPos - 525){
+                velX = -7;
+                velY = -3;
+            }
+            if (clickPos[0] > ballXPos - 525 && clickPos[0] <= ballXPos - 450) {
+                velX = -6;
+                velY = -3;
+            }
+
+            if (clickPos[0] > ballXPos - 450 && clickPos[0] <= ballXPos - 375){
+                velX = -6;
+                velY = -3;
+            }
+            if (clickPos[0] > ballXPos - 375 && clickPos[0] <= ballXPos - 300) {
+                velX = -5;
+                velY = -3;
+            }
+            if (clickPos[0] > ballXPos - 300 && clickPos[0] <= ballXPos - 225){
+                velX = -4;
+                velY = -4;
+            }
+            if (clickPos[0] > ballXPos - 225 && clickPos[0] <= ballXPos - 150){
+                velX = -3;
+                velY = -4;
+            }
+            if (clickPos[0] > ballXPos - 150 && clickPos[0] <= ballXPos - 75) {
+                velX = -2;
+                velY = -4;
+            }
+            if (clickPos[0] > ballXPos - 75 && clickPos[0] < ballXPos - 10) {
+                velX = -1;
+                velY = -5;
+            }
+            if (clickPos[0] < ballXPos + 10 && clickPos[0] > ballXPos - 10) {
+                velX = 0;
+                velY = -5;
+            }
+            if (clickPos[0] > ballXPos + 10 && clickPos[0] < ballXPos + 75) {
+                velX = 1;
+                velY = -5;
+            }
+            if (clickPos[0] > ballXPos + 75 && clickPos[0] < ballXPos + 150) {
+                velX = 2;
+                velY = -4;
+            }
+            if (clickPos[0] > ballXPos + 150 && clickPos[0] < ballXPos + 225) {
+                velX = 3;
+                velY = -4;
+            }
+            if (clickPos[0] > ballXPos + 225 && clickPos[0] < ballXPos + 300) {
+                velX = 4;
+                velY = -4;
+            }
+            if (clickPos[0] > ballXPos + 300 && clickPos[0] < ballXPos + 375) {
+                velX = 5;
+                velY = -3;
+            }
+            if (clickPos[0] > ballXPos + 375 && clickPos[0] < ballXPos + 450) {
+                velX = 6;
+                velY = -3;
+            }
+            // new
+            if (clickPos[0] > ballXPos + 450 && clickPos[0] <= ballXPos + 525) {
+                velX = 6;
+                velY = -3;
+            }
+            if (clickPos[0] > ballXPos + 525 && clickPos[0] <= ballXPos + 600) {
+                velX = 7;
+                velY = -3;
+            }
+            if (clickPos[0] > ballXPos + 600 && clickPos[0] <= ballXPos + 675) {
+                velX = 7;
+                velY = -3;
+            }
+            if (clickPos[0] > ballXPos + 675 && clickPos[0] <= ballXPos + 750) {
+                velX = 8;
+                velY = -3;
+            }
+            if (clickPos[0] > ballXPos + 750 && clickPos[0] <= ballXPos + 825) {
+                velX = 9;
+                velY = -3;
+            }
+            if (clickPos[0] > ballXPos + 825 && clickPos[0] <= ballXPos + 837) {
+                velX = 10;
+                velY = -3;
+            }
+            this.game.inMotion = true;
+            this.game.aiming = false;
+            this.vel = [velX, velY];
         }
     }
 
@@ -96,10 +214,8 @@ class Ball {
         let currentYpos = this.pos[1];
 
         if (currentYpos > 637 && currentYpos < 653) {
-
             this.game.roundOver = true;
             this.vel = [0, 0]
-        
         }
         if (currentXvel > 0 && currentYvel > 0 && currentXpos > 885 && currentYpos < 640){
             // moving towards lower-right, bouncing on right wall
@@ -133,7 +249,6 @@ class Ball {
     }
 
     paddleBounce(paddle){
-        let that = this
         let currentXvel = this.vel[0];
         let currentYvel = this.vel[1];
         let ballBottomX = this.pos[0];
@@ -143,15 +258,15 @@ class Ball {
         // or neutralized when hit from the left
         if (currentXvel === 0 && currentYvel > 0 && (ballBottomX < paddle.pos[0] + thirdSegment)) {
             // hit paddle moving straight down
-            this.vel = [-3, -currentYvel];
+            this.vel = [-2, -currentYvel];
         }
         if (currentXvel > 0 && currentYvel > 0 && (ballBottomX < paddle.pos[0] + thirdSegment)) {
             // hit paddle moving down-right
-            this.vel = [0, -currentYvel];
+            this.vel = [currentXvel - 2, -currentYvel];
         }
         if (currentXvel < 0 && currentYvel > 0 && (ballBottomX < paddle.pos[0] + thirdSegment)) {
             // hit paddle moving down-left
-            this.vel = [-8, -currentYvel];
+            this.vel = [currentXvel - 3, -currentYvel];
         }
 
         //  center paddle segment bounces the ball at the same rate it was hit at
@@ -172,15 +287,15 @@ class Ball {
         // or neutralized when hit from the right
         if (currentXvel === 0 && currentYvel > 0 && (ballBottomX > paddle.pos[0] + (thirdSegment * 2) && ballBottomX < (paddle.pos[0] + paddle.dims[0]))) {
             // hit paddle moving straight down
-            this.vel = [3, -currentYvel]
+            this.vel = [2, -currentYvel]
         }
         if (currentXvel > 0 && currentYvel > 0 && (ballBottomX > paddle.pos[0] + (thirdSegment * 2) && ballBottomX < (paddle.pos[0] + paddle.dims[0]))) {
             // hit paddle moving down-right
-            this.vel = [8, -currentYvel]
+            this.vel = [currentXvel + 2, -currentYvel]
         }
         if (currentXvel < 0 && currentYvel > 0 && (ballBottomX > paddle.pos[0] + (thirdSegment * 2) && ballBottomX < (paddle.pos[0] + paddle.dims[0]))) {
             // hit paddle moving down-left
-            this.vel = [0, -currentYvel]
+            this.vel = [currentXvel + 3, -currentYvel]
         }
         
     }
