@@ -20,17 +20,51 @@ class Paddle {
         ctx.fill();
     }
 
-    move(dir, ctx){
-        if (!this.game.inMotion){
-            let paddleX = this.pos[0] + dir;
-            let paddleY = this.pos[1]
-            let ballX = this.ball.pos[0] + dir
-            let ballY = this.ball.pos[1]
-            if (paddleX < 25){
+    // move(dir, ctx){
+    //     if (!this.game.inMotion){
+    //         let paddleX = this.pos[0] + dir;
+    //         let paddleY = this.pos[1]
+    //         let ballX = this.ball.pos[0] + dir
+    //         let ballY = this.ball.pos[1]
+    //         if (paddleX < 25){
+    //             paddleX = 25;
+    //             ballX = 63;
+    //         }
+    //         if (paddleX > 805){
+    //             paddleX = 805;
+    //             ballX = 842;
+    //         }
+    //         this.pos = [paddleX, paddleY]
+    //         this.ball.pos = [ballX, ballY]
+    //         this.ball.draw(ctx)
+    //         this.draw(ctx);
+    //     } else {
+    //         let paddleX = this.pos[0] + dir;
+    //         let paddleY = this.pos[1]
+    //         if (paddleX < 25) {
+    //             paddleX = 25;
+    //         }
+    //         if (paddleX > 805) {
+    //             paddleX = 805;
+
+    //         }
+    //         this.pos = [paddleX, paddleY]
+    //         console.log(this.pos)
+    //         this.draw(ctx);
+    //     }
+    // }   
+
+    move(vel, ctx) {
+        if (!this.game.inMotion) {
+            let paddleX = this.pos[0] + vel[0];
+            let paddleY = this.pos[1];
+            let ballX = this.ball.pos[0] + vel[0];
+            let ballY = this.ball.pos[1];
+            if (paddleX < 25) {
                 paddleX = 25;
                 ballX = 63;
             }
-            if (paddleX > 805){
+            if (paddleX > 805) {
                 paddleX = 805;
                 ballX = 842;
             }
@@ -39,8 +73,8 @@ class Paddle {
             this.ball.draw(ctx)
             this.draw(ctx);
         } else {
-            let paddleX = this.pos[0] + dir;
-            let paddleY = this.pos[1]
+            let paddleX = this.pos[0] + vel[0];
+            let paddleY = this.pos[1];
             if (paddleX < 25) {
                 paddleX = 25;
             }
@@ -49,10 +83,9 @@ class Paddle {
 
             }
             this.pos = [paddleX, paddleY]
-            console.log(this.pos)
             this.draw(ctx);
         }
-    }   
+    } 
 }
 
 export default Paddle;

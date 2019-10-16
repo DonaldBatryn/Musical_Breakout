@@ -23,7 +23,7 @@ class Game {
         this.DIM_X = 900;
         this.DIM_Y = 650;
         this.NUM_BRICKS = 70;
-        this.NUM_LIVES = 5;
+        this.NUM_LIVES = 1;
         this.roundOver = false;
         this.score = 0;
         this.bricks = [];
@@ -31,6 +31,8 @@ class Game {
         this.addBricks();
         this.inMotion = false;
         this.paddle = new Paddle(this, this.ball);
+        this.paddleVel = [0, 0];
+        this.win = false;
     }
 
     addBricks(){
@@ -98,6 +100,7 @@ class Game {
 
     step(ctx){
         this.ball.move(ctx)
+        this.paddle.move(this.paddleVel, ctx)
         this.checkCollisions()
     }
 
@@ -105,6 +108,9 @@ class Game {
         let idx = this.bricks.indexOf(brick);
         this.bricks.splice(idx, 1);
         this.score += 100;
+        if (this.bricks.length === 0){
+            this.win = true
+        }
         let currentX = this.ball.vel[0]
         let currentY = this.ball.vel[1]
 

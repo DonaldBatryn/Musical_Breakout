@@ -143,28 +143,21 @@ class Ball {
         // or neutralized when hit from the left
         if (currentXvel === 0 && currentYvel > 0 && (ballBottomX < paddle.pos[0] + thirdSegment)) {
             // hit paddle moving straight down
-            
             this.vel = [-3, -currentYvel];
-            
         }
         if (currentXvel > 0 && currentYvel > 0 && (ballBottomX < paddle.pos[0] + thirdSegment)) {
             // hit paddle moving down-right
-            
             this.vel = [0, -currentYvel];
-            
         }
         if (currentXvel < 0 && currentYvel > 0 && (ballBottomX < paddle.pos[0] + thirdSegment)) {
             // hit paddle moving down-left
-            
             this.vel = [-8, -currentYvel];
-            
         }
 
         //  center paddle segment bounces the ball at the same rate it was hit at
         if (currentXvel === 0 && currentYvel > 0 && (ballBottomX > paddle.pos[0] + thirdSegment && ballBottomX < (paddle.pos[0] + paddle.dims[0]) - thirdSegment)) {
             // hit paddle moving straight down
-            this.vel = [currentXvel, -currentYvel]
-            
+            this.vel = [currentXvel - 1, -currentYvel]
         }
         if (currentXvel > 0 && currentYvel > 0 && (ballBottomX > paddle.pos[0] + thirdSegment && ballBottomX < (paddle.pos[0] + paddle.dims[0]) - thirdSegment)) {
             // hit paddle moving down-right
