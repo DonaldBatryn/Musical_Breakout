@@ -53,7 +53,7 @@ class Ball {
             return
         } else {
             this.game.inMotion = true
-            this.vel = [-5, -5];
+            this.vel = [0, -5];
         }
     }
 
@@ -132,22 +132,64 @@ class Ball {
        
     }
 
-    paddleBounce(){
+    paddleBounce(paddle){
+        let that = this
         let currentXvel = this.vel[0];
         let currentYvel = this.vel[1];
-        if (currentXvel === 0 && currentYvel > 0) {
+        let ballBottomX = this.pos[0];
+        let thirdSegment = paddle.dims[0] / 3
+
+        // left paddle segment makes the balls X velocity decrease when hit dead on or from the right
+        // or neutralized when hit from the left
+        if (currentXvel === 0 && currentYvel > 0 && (ballBottomX < paddle.pos[0] + thirdSegment)) {
             // hit paddle moving straight down
-            console.log('hit paddle moving down')
-            this.vel = [currentXvel, -currentYvel]
+            
+            this.vel = [-3, -currentYvel];
+            
         }
-        if (currentXvel > 0 && currentYvel > 0) {
+        if (currentXvel > 0 && currentYvel > 0 && (ballBottomX < paddle.pos[0] + thirdSegment)) {
+            // hit paddle moving down-right
+            
+            this.vel = [0, -currentYvel];
+            
+        }
+        if (currentXvel < 0 && currentYvel > 0 && (ballBottomX < paddle.pos[0] + thirdSegment)) {
+            // hit paddle moving down-left
+            
+            this.vel = [-8, -currentYvel];
+            
+        }
+
+        //  center paddle segment bounces the ball at the same rate it was hit at
+        if (currentXvel === 0 && currentYvel > 0 && (ballBottomX > paddle.pos[0] + thirdSegment && ballBottomX < (paddle.pos[0] + paddle.dims[0]) - thirdSegment)) {
+            // hit paddle moving straight down
+            this.vel = [currentXvel, -currentYvel]
+            
+        }
+        if (currentXvel > 0 && currentYvel > 0 && (ballBottomX > paddle.pos[0] + thirdSegment && ballBottomX < (paddle.pos[0] + paddle.dims[0]) - thirdSegment)) {
             // hit paddle moving down-right
             this.vel = [currentXvel, -currentYvel]
         }
-        if (currentXvel < 0 && currentYvel > 0) {
+        if (currentXvel < 0 && currentYvel > 0 && (ballBottomX > paddle.pos[0] + thirdSegment && ballBottomX < (paddle.pos[0] + paddle.dims[0]) - thirdSegment)) {
             // hit paddle moving down-left
             this.vel = [currentXvel, -currentYvel]
         }
+
+        // right paddle segment makes the balls X velocity increase when hit dead on or from the left
+        // or neutralized when hit from the right
+        if (currentXvel === 0 && currentYvel > 0 && (ballBottomX > paddle.pos[0] + (thirdSegment * 2) && ballBottomX < (paddle.pos[0] + paddle.dims[0]))) {
+            // hit paddle moving straight down
+            this.vel = [3, -currentYvel]
+        }
+        if (currentXvel > 0 && currentYvel > 0 && (ballBottomX > paddle.pos[0] + (thirdSegment * 2) && ballBottomX < (paddle.pos[0] + paddle.dims[0]))) {
+            // hit paddle moving down-right
+            this.vel = [8, -currentYvel]
+        }
+        if (currentXvel < 0 && currentYvel > 0 && (ballBottomX > paddle.pos[0] + (thirdSegment * 2) && ballBottomX < (paddle.pos[0] + paddle.dims[0]))) {
+            // hit paddle moving down-left
+            this.vel = [0, -currentYvel]
+        }
+        
     }
 }
 

@@ -90,8 +90,8 @@ class Game {
                 this.ball.bounce()
             }
             if (this.ball.hitPaddle(this.paddle)){
- 
-                this.ball.paddleBounce()
+                console.log("chck collisions hit paddle")
+                this.ball.paddleBounce(this.paddle)
             }
         }
     }

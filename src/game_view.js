@@ -25,7 +25,6 @@ class GameView {
     stop(){
         clearInterval(this.interval);
         this.game.NUM_LIVES -= 1;
-        // console.log(this.game.NUM_LIVES)
         this.game.resetBallPaddle(this.ctx)
         if (this.game.NUM_LIVES > 0){
             this.game.roundOver = false;
@@ -52,10 +51,10 @@ class GameView {
         let gameV = this;
         key("space", function () { gameV.game.ball.launch() });
         if (this.game.NUM_LIVES > 0){
-            key("left", function () { gameV.game.paddle.move(-20, gameV.ctx) });
-            key("a", function () { gameV.game.paddle.move(-20, gameV.ctx) });
-            key("right", function () { gameV.game.paddle.move(20, gameV.ctx) });
-            key("d", function () { gameV.game.paddle.move(20, gameV.ctx) });
+            key("left", function () { gameV.game.paddle.move(-10, gameV.ctx) });
+            key("a", function () { gameV.game.paddle.move(-10, gameV.ctx) });
+            key("right", function () { gameV.game.paddle.move(10, gameV.ctx) });
+            key("d", function () { gameV.game.paddle.move(10, gameV.ctx) });
         } else {
             key("left", function () { console.log("muted") });
             key("a", function () { console.log("muted") });

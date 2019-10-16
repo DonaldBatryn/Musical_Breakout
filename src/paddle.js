@@ -49,47 +49,10 @@ class Paddle {
 
             }
             this.pos = [paddleX, paddleY]
+            console.log(this.pos)
             this.draw(ctx);
         }
-    }
-
-    //  move(vel, ctx){
-    //     if (!this.game.inMotion){
-    //         let paddleX = this.pos[0];
-    //         let paddleY = this.pos[1];
-    //         let ballX = this.ball.pos[0];
-    //         let ballY = this.ball.pos[1];
-    //         if (paddleX < 25){
-    //             paddleX = 25;
-    //             ballX = 63;
-    //         }
-    //         if (paddleX > 805){
-    //             paddleX = 805;
-    //             ballX = 842;
-    //         }
-    //         this.vel = vel
-    //         this.ball.vel = vel
-    //         this.pos = [paddleX + vel[0], paddleY + vel[1]]
-    //         // this.ball.pos = [ballX, ballY]
-    //         this.ball.draw(ctx)
-            
-    //         this.draw(ctx);
-    //     } else {
-    //         let paddleX = this.pos[0];
-    //         let paddleY = this.pos[1]
-    //         if (paddleX < 25) {
-    //             paddleX = 25;
-    //         }
-    //         if (paddleX > 805) {
-    //             paddleX = 805;
-
-    //         }
-    //         this.vel = vel
-    //         this.pos = [paddleX + vel[0], paddleY + vel[1]]
-    //         this.draw(ctx);
-    //     }
-    // }
-   
+    }   
 }
 
 export default Paddle;
