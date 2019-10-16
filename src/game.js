@@ -2,6 +2,7 @@ import Brick from './brick';
 import { randomColor } from './utils';
 import Ball from './ball';
 import Paddle from './paddle'
+import Pointer from './pointer';
 
 // set up some constants that pair a color to a sound
 const COLORS = [
@@ -23,14 +24,15 @@ class Game {
         this.DIM_X = 900;
         this.DIM_Y = 650;
         this.NUM_BRICKS = 70;
-        this.NUM_LIVES = 1;
+        this.NUM_LIVES = 3;
         this.roundOver = false;
         this.score = 0;
         this.bricks = [];
         this.ball = new Ball(this);
         this.addBricks();
         this.inMotion = false;
-        this.paddle = new Paddle(this, this.ball);
+        this.pointer = new Pointer(this, this.ball);
+        this.paddle = new Paddle(this, this.ball, this.pointer);
         this.paddleVel = [0, 0];
         this.win = false;
     }
@@ -80,6 +82,7 @@ class Game {
         })
         this.ball.draw(ctx);
         this.paddle.draw(ctx);
+        this.pointer.draw(ctx);
     }
 
     checkCollisions() {
@@ -92,7 +95,6 @@ class Game {
                 this.ball.bounce()
             }
             if (this.ball.hitPaddle(this.paddle)){
-                console.log("chck collisions hit paddle")
                 this.ball.paddleBounce(this.paddle)
             }
         }
@@ -136,8 +138,10 @@ class Game {
         this.inMotion = false;
         this.ball = [];
         this.paddle = [];
+        this.pointer = [];
         this.ball = new Ball(this);
-        this.paddle = new Paddle(this, this.ball);
+        this.pointer = new Pointer(this, this.ball)
+        this.paddle = new Paddle(this, this.ball, this.pointer);
         this.ball.draw(ctx);
         this.paddle.draw(ctx);
     }

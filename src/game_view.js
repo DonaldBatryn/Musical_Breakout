@@ -7,6 +7,8 @@ class GameView {
         this.interval = "";
         this.rightKey = false;
         this.leftKey = false;
+        this.mKey = false;
+        this.nKey = false;
     }
 
     start() {
@@ -15,9 +17,8 @@ class GameView {
         this.interval = setInterval(function () {
             that.game.draw(that.ctx);
             that.game.step(that.ctx);
-            // console.log(that.game.paddle.vel)
             if (that.game.win){
-                this.win();
+                that.win();
             } else if (that.game.roundOver){
                 that.stop();
             }
@@ -40,8 +41,6 @@ class GameView {
     gameOver(){
         this.game.draw(this.ctx)
         this.ctx.clearRect(15, 400, 870, 240)
-        // let gameoverMsg = document.getElementById("gameover-msg");
-        // gameoverMsg.classList.remove("hidden")
         this.ctx.font = "90px Apercu";
         this.ctx.fillStyle = "red"
         this.ctx.fillText("GAME OVER", 180, 410)
@@ -49,7 +48,11 @@ class GameView {
 
     win(){
         clearInterval(this.interval);
-        // display win stuff
+        this.game.draw(this.ctx)
+        this.ctx.clearRect(15, 400, 870, 240)
+        this.ctx.font = "90px Apercu";
+        this.ctx.fillStyle = "green"
+        this.ctx.fillText("YOU WIN!", 180, 410)
     }
 
     keyDownHandler(e){
@@ -57,6 +60,10 @@ class GameView {
             this.rightKey = true;
         } else if (e.key === "ArrowLeft" || e.key === "a") {
             this.leftKey = true
+        } else if (e.key === "m") {
+            this.mKey = true;
+        } else if (e.key === "n") {
+            this.nKey = true;
         }
         if (this.leftKey){
             this.game.paddleVel = [-10, 0]
@@ -66,6 +73,12 @@ class GameView {
             this.game.paddleVel = [10, 0]
             // this.game.paddle.move([5, 0], this.ctx)
         }
+        if (this.mKey) {
+            // turn pointer right
+        }
+        if (this.nKey) {
+            // turn pointer left
+        }
     }
     
     keyUpHandler(e){
@@ -73,6 +86,10 @@ class GameView {
             this.rightKey = false;
         } else if (e.key === "ArrowLeft" || e.key === "a") {
             this.leftKey = false
+        } else if (e.key === "m") {
+            this.mKey = false;
+        } else if (e.key === "n") {
+            this.nKey = false;
         }
         if (!this.leftKey){
             this.game.paddleVel = [0, 0]
@@ -80,17 +97,17 @@ class GameView {
         if (!this.rightKey) {
             this.game.paddleVel = [0, 0]
         }
+        if (!this.mKey) {
+            // do nothing?
+        }
+        if (!this.nKey) {
+            // do nothing?
+        }
     }
 
     bindKeyHandlers(){
         let gameV = this;
         key("space", function () { gameV.game.ball.launch() });
-        // if (this.game.NUM_LIVES > 0){
-        //     key("left", function () { gameV.game.paddle.move(-10, gameV.ctx) });
-        //     key("a", function () { gameV.game.paddle.move(-10, gameV.ctx) });
-        //     key("right", function () { gameV.game.paddle.move(10, gameV.ctx) });
-        //     key("d", function () { gameV.game.paddle.move(10, gameV.ctx) });
-        // }
         document.addEventListener("keydown", (e) => this.keyDownHandler(e), false);
         document.addEventListener("keyup", (e) => this.keyUpHandler(e), false);
     }
