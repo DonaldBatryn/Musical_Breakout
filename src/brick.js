@@ -22,6 +22,21 @@ class Brick {
     collideWith() {
         this.game.remove(this);
         // add function to play sound possibly here?
+        let player1 = document.getElementById("audio-1");
+        let player2 = document.getElementById("audio-2");
+        let player4 = document.getElementById("audio-4");
+        if (player1.duration > 0 && !player1.paused){
+            if (player2.duration > 0 && !player2.paused){
+                player4.setAttribute("src", this.sound)
+                player4.play()
+            } else {
+                player2.setAttribute("src", this.sound)
+                player2.play()
+            }
+        } else {
+            player1.setAttribute("src", this.sound)
+            player1.play()
+        }
     };
 }
 

@@ -52,6 +52,8 @@ class Ball {
     // its velocity based on the clicks position 
     // relative to the ball
     launch(clickPos){
+        let player3 = document.getElementById("audio-3");
+        player3.play();
         if (this.game.inMotion){
             return
         } else {

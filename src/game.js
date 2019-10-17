@@ -1,8 +1,9 @@
 import Brick from './brick';
 import { randomColor } from './utils';
 import Ball from './ball';
-import Paddle from './paddle'
-import Pointer from './pointer';
+import Paddle from './paddle';
+import { MAIN_AUDIO, BRICK_AUDIO } from './audio';
+// import Pointer from './pointer';
 
 // set up some constants that pair a color to a sound
 const COLORS = [
@@ -42,6 +43,7 @@ class Game {
         let brickX = 100;
         let brickY = 100;
         while (this.bricks.length < this.NUM_BRICKS) {
+            let randNum = Math.floor(Math.random() * BRICK_AUDIO.length)
             let colorIndex = this.bricks.length % 11
             if (brickX === 800){
                 brickX = 100
@@ -50,7 +52,7 @@ class Game {
             this.bricks.push(new Brick({
                 "color": COLORS[colorIndex],
                 "pos": [brickX, brickY],
-                "sound": "sound"
+                "sound": BRICK_AUDIO[randNum]
             }, this))
             brickX += 70;
         }
@@ -77,16 +79,12 @@ class Game {
 
     draw(ctx){ // took out pointerCtx
         ctx.clearRect(0, 0, 900, 650);
-        // pointerCtx.clearRect(0, 0, 900, 650);
         this.drawBackground(ctx);
         this.bricks.forEach(brick => {
             brick.draw(ctx)
         })
         this.ball.draw(ctx);
         this.paddle.draw(ctx);
-        // if (this.aiming){
-        //     this.pointer.draw(pointerCtx);
-        // }
     }
 
     checkCollisions() {
@@ -111,6 +109,7 @@ class Game {
     }
 
     remove(brick){
+        
         let idx = this.bricks.indexOf(brick);
         this.bricks.splice(idx, 1);
         this.score += 100;
@@ -142,12 +141,9 @@ class Game {
         this.inMotion = false;
         this.ball = [];
         this.paddle = [];
-        // this.pointer = [];
         this.ball = new Ball(this);
-        // this.pointer = new Pointer(this, this.ball)
         this.paddle = new Paddle(this, this.ball, this.pointer);
         this.ball.draw(ctx);
-        // this.aiming = true;
         this.paddle.draw(ctx);
     }
 }

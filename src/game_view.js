@@ -5,13 +5,16 @@ class GameView {
         this.game = game;
         this.canvas = canvas;
         this.ctx = ctx;
-        // this.pointerCtx = pointerCtx;
         this.interval = "";
         this.rightKey = false;
         this.leftKey = false;
-        // this.mKey = false;
-        // this.nKey = false;
+        // this.startSongLoop();
     }
+
+    // startSongLoop(){
+    //     let player3 = document.getElementById("audio-3");
+    //     player3.play();
+    // }
 
     start() {
         let that = this;
@@ -25,6 +28,7 @@ class GameView {
                 that.stop();
             }
         }, 20);
+        
     }
 
     stop(){
@@ -33,12 +37,9 @@ class GameView {
         this.game.resetBallPaddle(this.ctx);
         if (this.game.NUM_LIVES > 0){
             this.game.roundOver = false;
-            
             this.start();
         } else {
-            // this.game.aiming = false;
             this.gameOver();
-            // render game over and play again button, score?
         }
     }
 
@@ -67,29 +68,12 @@ class GameView {
         } else if (e.key === "ArrowLeft" || e.key === "a") {
             this.leftKey = true
         } 
-        // else if (e.key === "m") {
-        //     this.mKey = true;
-        // } else if (e.key === "n") {
-        //     this.nKey = true;
-        // }
         if (this.leftKey){
             this.game.paddleVel = [-10, 0]
-            // this.game.paddle.move([-5, 0], this.ctx)
         }
         if (this.rightKey) {
             this.game.paddleVel = [10, 0]
-            // this.game.paddle.move([5, 0], this.ctx)
         }
-        // if (this.mKey) {
-        //     // turn pointer right
-        //     let ctx = this.pointerCtx
-        //     let ballPos = this.game.ball.pos
-            
-        //     this.game.pointer.rotatePointer(ctx, ballPos)
-        // }
-        // if (this.nKey) {
-        //     // turn pointer left
-        // }
     }
     
     keyUpHandler(e){
@@ -98,23 +82,12 @@ class GameView {
         } else if (e.key === "ArrowLeft" || e.key === "a") {
             this.leftKey = false
         } 
-        // else if (e.key === "m") {
-        //     this.mKey = false;
-        // } else if (e.key === "n") {
-        //     this.nKey = false;
-        // }
         if (!this.leftKey){
             this.game.paddleVel = [0, 0]
         }
         if (!this.rightKey) {
             this.game.paddleVel = [0, 0]
         }
-        // if (!this.mKey) {
-        //     // do nothing?
-        // }
-        // if (!this.nKey) {
-        //     // do nothing?
-        // }
     }
 
     bindKeyHandlers(){
