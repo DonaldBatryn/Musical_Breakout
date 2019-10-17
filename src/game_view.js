@@ -1,4 +1,4 @@
-
+import { WIN_AUDIO, LOSE_AUDIO } from './audio';
 
 class GameView {
     constructor(game, ctx, canvas){ // took out pointerCtx
@@ -56,6 +56,9 @@ class GameView {
         this.ctx.font = "90px Apercu";
         this.ctx.fillStyle = "red"
         this.ctx.fillText("GAME OVER", 180, 410)
+        let endPlayer = document.getElementById("win-lose-audio");
+        endPlayer.setAttribute("src", LOSE_AUDIO);
+        endPlayer.play();
     }
 
     win(){
@@ -65,6 +68,11 @@ class GameView {
         this.ctx.font = "90px Apercu";
         this.ctx.fillStyle = "green"
         this.ctx.fillText("YOU WIN!", 240, 410)
+        setTimeout(() => {
+            let endPlayer = document.getElementById("win-lose-audio");
+            endPlayer.setAttribute("src", WIN_AUDIO);
+            endPlayer.play();
+        }, 1000)
     }
 
     keyDownHandler(e){
