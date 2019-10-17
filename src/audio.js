@@ -23,4 +23,3 @@ export const BRICK_AUDIO = [
     "https://musical-breakout-js.s3.us-east-2.amazonaws.com/ThirdSixth.mp3"
 ];
 
-export const MAIN_AUDIO = "https://musical-breakout-js.s3.us-east-2.amazonaws.com/MusicalBreakoutMainLoop.mp3"

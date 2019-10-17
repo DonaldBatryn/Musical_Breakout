@@ -6,16 +6,42 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="application/javascript" src="keymaster.js"></script>
         <script type="application/javascript" src="main.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
        <div class="canvas-container">
            <canvas id="game-canvas" width="900" height="650"></canvas>
-           <canvas id="pointer" width="900" height="650"></canvas>
-
+           <div id="blocker" class="blocker">
+           <div id="game-menu" class="game-menu">
+                <div class="title">
+                    <h1 class="menu-title-text">Musical</h1>
+                    <h1 class="menu-title-text">Breakout</h1>
+                    <h3>Built and Performed by</h3>
+                    <h2><a href="https://github.com/DonaldBatryn/Musical_Breakout">Donald Batryn</a></h2>
+                </div>
+                <div class="menu-info">
+                    <div class="controls-menu">
+                        <h2>Controls:</h2>
+                        <div class="arrow-div">
+                            <img class="arrowkeys-img" src="https://musical-breakout-js.s3.us-east-2.amazonaws.com/kisspng-computer-keyboard-arrow-keys-computer-icons-page-u-5ae939f167e309.3845652615252341614255.png"/>
+                            <h3>to move paddle!</h3>
+                        </div>
+                        <div class="arrow-div">
+                            <img class="arrow-pointer-img" src="https://musical-breakout-js.s3.us-east-2.amazonaws.com/kisspng-computer-mouse-pointer-cursor-arrow-point-and-clic-cursor-5b556e7fbbae70.9313506815323255037688.png" alt="click to aim and launch ball"/>
+                            <h3>to aim and launch ball!</h3>
+                        </div>
+                        <!-- <h5>or</h5> -->
+                        <h3 class="spacebar-msg">(Spacebar to launch ball toward center)</h3>
+                    </div>
+                    <div class="menu-start">
+                        <div id="start-button" class="start-button">Start Game</div>
+                    </div>
+                </div>
+           </div>
+        </div>
        </div>
-       <div class="pointer-container">
-       </div>
+       
        <audio id="audio-1" src=""></audio>
        <audio id="audio-2" src=""></audio>
        <audio loop preload="auto" id="audio-3" src="https://musical-breakout-js.s3.us-east-2.amazonaws.com/MusicalBreakoutMainLoop.mp3"></audio>

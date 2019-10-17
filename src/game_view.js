@@ -8,17 +8,22 @@ class GameView {
         this.interval = "";
         this.rightKey = false;
         this.leftKey = false;
-        // this.startSongLoop();
+        this.menuOpen = true;
+    
     }
-
-    // startSongLoop(){
-    //     let player3 = document.getElementById("audio-3");
-    //     player3.play();
-    // }
 
     start() {
         let that = this;
         that.bindKeyHandlers();
+ 
+        let startButton = document.getElementById("start-button")
+        startButton.addEventListener("click", (e) => {
+            e.stopPropagation();
+            let menu = document.getElementById("game-menu")
+            menu.classList.add("hidden")
+            that.menuOpen = false;
+            blocker.classList.add("hidden")
+        })
         this.interval = setInterval(function () {
             that.game.draw(that.ctx); // took out pointerCtx
             that.game.step(that.ctx); // took out pointerCtx
@@ -93,11 +98,15 @@ class GameView {
     bindKeyHandlers(){
         let gameV = this;
         let launchX = this.game.ball.pos[0] 
-        key("space", function () { gameV.game.ball.launch([launchX, -5]) });
+        key("space", function () {
+            if (!gameV.menuOpen){
+                gameV.game.ball.launch([launchX, -5])
+            }
+        });
         document.addEventListener("keydown", (e) => this.keyDownHandler(e), false);
         document.addEventListener("keyup", (e) => this.keyUpHandler(e), false);
         document.addEventListener("click", (e) => {
-            if (!gameV.game.inMotion){
+            if (!gameV.game.inMotion && !gameV.menuOpen){
                 let X = e.pageX;
                 let Y = e.pageY;
                 X -= gameV.canvas.offsetLeft;

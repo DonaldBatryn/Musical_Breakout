@@ -4,6 +4,10 @@ html, body, div, canvas {
     box-sizing: border-box;
 }
 
+a{
+    color: blueviolet;
+}
+
 .canvas-container{
     width: 100vw;
     height: 100vh;
@@ -19,21 +23,123 @@ html, body, div, canvas {
     
 }
 
-#pointer{
+.game-menu{
     position: absolute;
-        
+    width: 710px;
+    height: 490px;
+    background-color: rgb(196, 195, 195);
+    /* background-color: whitesmoke; */
+    /* border: 10px solid black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 3;
 }
 
+.blocker{
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(141, 139, 139, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    
+}
 
-/* .gameover-msg{
-    display: block;
-    position: absolute;
-    color: red;
-    top: 40vh;
-    right: 255px;
-    font-size: 50px
+.title{
+    height: 95%;
+    width: 330px;
+    /* background-color: lightblue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.menu-title-text{
+    margin: 0;
+    font-size: 50px;
+    color: rgb(165, 101, 224);
+    font-family: 'Monoton', cursive;
+}
+
+.menu-info{
+    height: 95%;
+    width: 370px;
+    /* background-color: lightgray; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.controls-menu{
+    padding: 10px;
+    width: 99%;
+    height: 66%;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left; */
+}
+/* .controls-menu h2, .controls-menu h3, .controls-menu h5 {
+    margin: 5px;
+} */
+
+.arrow-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.arrowkeys-img{
+    width: 33%;
+    height: auto;
+}
+
+.arrow-pointer-img{
+    width: 15%;
+    height: auto;
+}
+
+.spacebar-msg{
+    margin-top: 25px;
+}
+
+.menu-start{
+    /* background-color: pink; */
+    width: 98%;
+    height: 33%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.start-button{
+    height: 50%;
+    width: 50%;
+    color: whitesmoke;
+    font-size: 30px;
+    border-radius: 5px;
+    background-color: rgb(59, 204, 59);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: -2px 5px 2px gray;
+    transition: all 0.1s ease-in-out;
+}
+
+.start-button:hover{
+    box-shadow: -4px 7px 4px gray;
 }
 
 .hidden{
     display: none;
-} */
+} 

@@ -2,10 +2,10 @@ import Brick from './brick';
 import { randomColor } from './utils';
 import Ball from './ball';
 import Paddle from './paddle';
-import { MAIN_AUDIO, BRICK_AUDIO } from './audio';
+import { BRICK_AUDIO } from './audio';
 // import Pointer from './pointer';
 
-// set up some constants that pair a color to a sound
+
 const COLORS = [
     "green",
     "pink",
@@ -37,6 +37,7 @@ class Game {
         this.paddleVel = [0, 0];
         this.win = false;
         // this.aiming = true;
+        this.started = false;
     }
 
     addBricks(){
