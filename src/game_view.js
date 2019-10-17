@@ -58,7 +58,7 @@ class GameView {
         this.ctx.clearRect(15, 400, 870, 240)
         this.ctx.font = "90px Apercu";
         this.ctx.fillStyle = "green"
-        this.ctx.fillText("YOU WIN!", 180, 410)
+        this.ctx.fillText("YOU WIN!", 240, 410)
     }
 
     keyDownHandler(e){
@@ -119,7 +119,8 @@ class GameView {
 
     bindKeyHandlers(){
         let gameV = this;
-        // key("space", function () { gameV.game.ball.launch() });
+        let launchX = this.game.ball.pos[0] 
+        key("space", function () { gameV.game.ball.launch([launchX, -5]) });
         document.addEventListener("keydown", (e) => this.keyDownHandler(e), false);
         document.addEventListener("keyup", (e) => this.keyUpHandler(e), false);
         document.addEventListener("click", (e) => {

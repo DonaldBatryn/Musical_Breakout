@@ -48,19 +48,10 @@ class Ball {
         return false;
     }
 
-    // launch() {
-    //     if (this.game.inMotion) {
-    //         return
-    //     } else {
-    //         this.game.inMotion = true;
-    //         this.game.aiming = false;
-    //         this.vel = [0, -5];
-    //     }
-    // }
-
+    // takes X/Y of mouse click and gives the ball
+    // its velocity based on the clicks position 
+    // relative to the ball
     launch(clickPos){
-        // split x down middle (450), if its 450, X is 0
-        // if its near 0
         if (this.game.inMotion){
             return
         } else {
@@ -91,7 +82,6 @@ class Ball {
                 velX = -6;
                 velY = -3;
             }
-
             if (clickPos[0] > ballXPos - 450 && clickPos[0] <= ballXPos - 375){
                 velX = -6;
                 velY = -3;
@@ -144,7 +134,6 @@ class Ball {
                 velX = 6;
                 velY = -3;
             }
-            // new
             if (clickPos[0] > ballXPos + 450 && clickPos[0] <= ballXPos + 525) {
                 velX = 6;
                 velY = -3;
@@ -183,13 +172,11 @@ class Ball {
             return true;
         }
         if (this.pos[1] + this.radius >= 640){
-            
             return true;
         }
         if (this.pos[1] - this.radius <= 10){
             return true;
         }
-        
         return false;
     }
 
@@ -201,7 +188,6 @@ class Ball {
         let rightBall = this.pos[0] + this.radius
         let leftBall = this.pos[0] - this.radius
         if ((bottomBall > paddleY - 4 && bottomBall < paddleY + 4) && (rightBall > paddleStartX && leftBall < paddleEndX)) {
-       
             return true
         }
         return false;

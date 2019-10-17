@@ -147,7 +147,7 @@ class Game {
         // this.pointer = new Pointer(this, this.ball)
         this.paddle = new Paddle(this, this.ball, this.pointer);
         this.ball.draw(ctx);
-        this.aiming = true;
+        // this.aiming = true;
         this.paddle.draw(ctx);
     }
 }
