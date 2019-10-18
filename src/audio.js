@@ -23,7 +23,7 @@ export const BRICK_AUDIO = [
     "https://musical-breakout-js.s3.us-east-2.amazonaws.com/ThirdSixth.mp3"
 ];
 
-export const WIN_AUDIO = "https://musical-breakout-js.s3.us-east-2.amazonaws.com/YouWin2.mp3"
+export const WIN_AUDIO = "https://musical-breakout-js.s3.us-east-2.amazonaws.com/YouWin3.mp3"
 
-export const LOSE_AUDIO = "https://musical-breakout-js.s3.us-east-2.amazonaws.com/GameOver.mp3"
+export const LOSE_AUDIO = "https://musical-breakout-js.s3.us-east-2.amazonaws.com/GameOver2.mp3"
 
