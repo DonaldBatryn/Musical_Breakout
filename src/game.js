@@ -32,12 +32,9 @@ class Game {
         this.ball = new Ball(this);
         this.addBricks();
         this.inMotion = false;
-        // this.pointer = new Pointer(this, this.ball);
-        this.paddle = new Paddle(this, this.ball); // took out pointer
+        this.paddle = new Paddle(this, this.ball); 
         this.paddleVel = [0, 0];
         this.win = false;
-        // this.aiming = true;
-        this.started = false;
     }
 
     addBricks(){
@@ -45,6 +42,7 @@ class Game {
         let brickY = 100;
         while (this.bricks.length < this.NUM_BRICKS) {
             let randNum = Math.floor(Math.random() * BRICK_AUDIO.length)
+            console.log(randNum)
             let colorIndex = this.bricks.length % 11
             if (brickX === 800){
                 brickX = 100

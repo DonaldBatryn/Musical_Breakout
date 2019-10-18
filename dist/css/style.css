@@ -6,6 +6,8 @@ html, body, div, canvas {
 
 a{
     color: blueviolet;
+    font-family: 'Exo', sans-serif;
+    font-weight: 900;
 }
 
 .canvas-container{
@@ -65,6 +67,10 @@ a{
     font-family: 'Monoton', cursive;
 }
 
+.built-by{
+    font-family: 'Exo', sans-serif;
+}
+
 .menu-info{
     height: 95%;
     width: 370px;
@@ -79,11 +85,12 @@ a{
     padding: 10px;
     width: 99%;
     height: 66%;
-    /* display: flex;
+    font-family: 'Exo', sans-serif;
+    display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
-    text-align: left; */
+    
 }
 
 .controls-header{
@@ -128,6 +135,7 @@ a{
 }
 
 .start-button{
+    font-family: 'Exo', sans-serif;
     height: 50%;
     width: 50%;
     color: whitesmoke;
@@ -159,6 +167,7 @@ a{
 }
 
 .play-again-button{
+    font-family: 'Exo', sans-serif;
     margin-bottom: 60px;
     width: 250px;
     height: 60px;
@@ -176,6 +185,33 @@ a{
 }
 
 .play-again-button:hover{
+    box-shadow: -4px 7px 4px gray;
+}
+
+.toggle-sound-container{
+    left: 900px;
+    position: absolute;
+    width: 50px;
+    height: 650px;
+    /* background-color: pink; */
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    z-index: 2;
+}
+
+.toggle-sound-img{
+    margin: 15px 0 0 15px;
+    width: 25px;
+    height: auto;
+    box-shadow: -2px 5px 2px gray;
+    transition: all 0.2s ease-in-out;
+    z-index: 3;
+}
+
+.toggle-sound-img:hover{
     box-shadow: -4px 7px 4px gray;
 }
 

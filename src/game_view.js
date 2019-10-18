@@ -1,4 +1,4 @@
-import { WIN_AUDIO, LOSE_AUDIO } from './audio';
+import { WIN_AUDIO, LOSE_AUDIO, ALL_AUDIO_PLAYERS } from './audio';
 
 class GameView {
     constructor(game, ctx, canvas){ // took out pointerCtx
@@ -130,6 +130,18 @@ class GameView {
                 Y -= gameV.canvas.offsetTop;
                 gameV.game.ball.launch([X, Y])
             }
+        })
+        let volButton = document.getElementById("toggle-sound");
+        volButton.addEventListener("click", (e) => {
+            e.stopPropagation();
+            ALL_AUDIO_PLAYERS.forEach(player => {
+                let muteState = player.getAttribute("muted");
+                if (!muteState){
+                    player.setAttribute("muted", true)
+                } else {
+                    player.setAttribute("muted", false)
+                }
+            })
         })
     }
 }
