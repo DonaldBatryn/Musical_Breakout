@@ -190,6 +190,7 @@ a{
 
 .toggle-sound-container{
     left: 900px;
+    /* left: 1060px; */
     position: absolute;
     width: 50px;
     height: 650px;
@@ -220,6 +221,7 @@ a{
 .player-info-container{
     padding-top: 20px;
     right: 640px;
+    /* right: 800px; */
     position: absolute;
     width: 300px;
     height: 650px;

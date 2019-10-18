@@ -12,7 +12,36 @@ class GameView {
         this.rightKey = false;
         this.leftKey = false;
         this.menuOpen = true;
-    
+        this.volumeListener = (e) => {
+            let volButton = document.getElementById("toggle-sound");
+            let player1 = document.getElementById("audio-1")
+            let player2 = document.getElementById("audio-2")
+            let player3 = document.getElementById("audio-3")
+            let player4 = document.getElementById("audio-4")
+            let player5 = document.getElementById("win-lose-audio")
+
+            const ALL_AUDIO_PLAYERS = [player1, player2, player3, player4, player5]
+            e.stopPropagation();
+            ALL_AUDIO_PLAYERS.forEach(player => {
+
+                if (player.volume === 1) {
+                    console.log("turning volume down")
+
+                    player.volume = 0;
+                    volButton.src = muteImage;
+                } else {
+                    console.log("turning volume up")
+
+                    player.volume = 1;
+                    volButton.src = soundImage;
+                }
+            })
+        }
+    }
+
+    unMount(gameV){
+        let volButton = document.getElementById("toggle-sound");
+        volButton.removeEventListener("click", gameV.volumeListener);
     }
 
     start() {
@@ -142,25 +171,26 @@ class GameView {
         let player5 = document.getElementById("win-lose-audio")
         
         const ALL_AUDIO_PLAYERS = [player1, player2, player3, player4, player5]
-        
+
         let volButton = document.getElementById("toggle-sound");
-        volButton.addEventListener("click", (e) => {
-            e.stopPropagation();
-            ALL_AUDIO_PLAYERS.forEach(player => {
+        // this.volumeListener = volButton.addEventListener("click", (e) => {
+        //     e.stopPropagation();
+        //     ALL_AUDIO_PLAYERS.forEach(player => {
                
-                if (player.volume === 1){
-                    console.log("volume is up")
+        //         if (player.volume === 1){
+        //             console.log("turning volume down")
                     
-                    player.volume = 0;
-                    volButton.src = muteImage;
-                } else {
-                    console.log("volume is down")
+        //             player.volume = 0;
+        //             volButton.src = muteImage;
+        //         } else {
+        //             console.log("turning volume up")
                     
-                    player.volume = 1;
-                    volButton.src = soundImage;
-                }
-            })
-        })
+        //             player.volume = 1;
+        //             volButton.src = soundImage;
+        //         }
+        //     })
+        // })
+        volButton.addEventListener("click", this.volumeListener);
     }
 }
 

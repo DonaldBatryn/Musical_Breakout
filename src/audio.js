@@ -9,7 +9,7 @@ export const BRICK_AUDIO = [
     "https://musical-breakout-js.s3.us-east-2.amazonaws.com/Ohh3432.mp3",
     "https://musical-breakout-js.s3.us-east-2.amazonaws.com/Ohh53.mp3",
     "https://musical-breakout-js.s3.us-east-2.amazonaws.com/Ohh612.mp3",
-    "https://musical-breakout-js.s3.us-east-2.amazonaws.com/Ohh6123.mp3",
+    // "https://musical-breakout-js.s3.us-east-2.amazonaws.com/Ohh6123.mp3",
     "https://musical-breakout-js.s3.us-east-2.amazonaws.com/Root.mp3",
     "https://musical-breakout-js.s3.us-east-2.amazonaws.com/Root8va.mp3",
     "https://musical-breakout-js.s3.us-east-2.amazonaws.com/RootThird.mp3",

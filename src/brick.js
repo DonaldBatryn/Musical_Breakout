@@ -19,9 +19,8 @@ class Brick {
         ctx.fill();
     }
 
-    collideWith() {
+    collideWith(ctx) {
         this.game.remove(this);
-        // add function to play sound possibly here?
         let player1 = document.getElementById("audio-1");
         let player2 = document.getElementById("audio-2");
         let player4 = document.getElementById("audio-4");
@@ -37,7 +36,28 @@ class Brick {
             player1.setAttribute("src", this.sound)
             player1.play()
         }
+        this.breakAnimation(ctx);
     };
+
+    breakAnimation(ctx){
+        let brickCenterX = this.pos[0] + (this.dims[0] / 2);
+        let brickCenterY = this.pos[1] + (this.dims[1] / 2);
+        ctx.beginPath();
+        ctx.arc(
+            brickCenterX,
+            brickCenterY,
+            this.dims[0] * 1.5,
+            0,
+            2 * Math.PI,
+            false
+        )
+        // ctx.strokeStyle = "rgba(100, 10, 100, 0.4)";
+        ctx.strokeStyle = this.color;
+        ctx.lineWidth = 6;
+        // ctx.fillStyle = "rgba(255, 255, 100, 0.4)";
+        ctx.stroke();
+
+    }
 }
 
 window.Brick = Brick;

@@ -83,11 +83,11 @@ class Game {
         this.paddle.draw(ctx);
     }
 
-    checkCollisions() {
+    checkCollisions(ctx) {
         for (let i = 0; i < this.bricks.length; i++) {
             let currentBrick = this.bricks[i]
             if (this.ball.isCollidedWith(currentBrick)) {
-                currentBrick.collideWith();
+                currentBrick.collideWith(ctx);
             } 
             if (this.ball.hitWall()) {
                 this.ball.bounce()
@@ -101,7 +101,7 @@ class Game {
     step(ctx){ // took out pointerCtx
         this.ball.move(ctx)
         this.paddle.move(this.paddleVel, ctx)
-        this.checkCollisions()
+        this.checkCollisions(ctx)
     }
 
     remove(brick){
@@ -110,7 +110,7 @@ class Game {
         this.bricks.splice(idx, 1);
         this.score += 100;
         document.getElementById("score").innerHTML = `SCORE: ${this.score}`;
-        if (this.bricks.length === 69){
+        if (this.bricks.length === 0){
             this.win = true
         }
         let currentX = this.ball.vel[0]
