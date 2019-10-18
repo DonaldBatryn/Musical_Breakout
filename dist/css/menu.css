@@ -1,12 +1,9 @@
 
-
 .game-menu{
     position: absolute;
     width: 780px;
     height: 490px;
     background-color: rgb(196, 195, 195);
-    /* background-color: whitesmoke; */
-    /* border: 10px solid black; */
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -23,13 +20,11 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    
 }
 
 .title{
     height: 95%;
     width: 330px;
-    /* background-color: lightblue; */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -50,7 +45,6 @@
 .menu-info{
     height: 95%;
     width: 370px;
-    /* background-color: lightgray; */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -101,7 +95,6 @@
 }
 
 .menu-start{
-    /* background-color: pink; */
     width: 98%;
     height: 33%;
     display: flex;

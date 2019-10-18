@@ -4,6 +4,7 @@ class Brick {
     constructor(options, game){
         this.color = options["color"];
         this.sound = options["sound"];
+        this.word = options["word"];
         this.pos = options["pos"];
         this.dims = [65, 25]
         this.game = game;
@@ -37,7 +38,20 @@ class Brick {
             player1.play()
         }
         this.breakAnimation(ctx);
+        this.createFlyer(this);
     };
+    
+    createFlyer(brick){
+        let flyerBackground = document.getElementById("flyer-background");
+        let newFlyer = document.createElement('div');
+        newFlyer.innerHTML = brick.word;
+        newFlyer.classList.add("flyer");
+        // newFlyer.setAttribute("id", brick.sound)
+        flyerBackground.appendChild(newFlyer);
+        setTimeout(() => {
+            newFlyer.parentNode.removeChild(newFlyer)
+        }, 2000)
+    }
 
     breakAnimation(ctx){
         let brickCenterX = this.pos[0] + (this.dims[0] / 2);

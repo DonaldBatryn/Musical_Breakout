@@ -1,6 +1,7 @@
 @import "menu.css";
 @import "play-again.css";
 @import "game-info.css";
+@import "flyers.css";
 
 html, body, div, canvas {
     margin: 0;

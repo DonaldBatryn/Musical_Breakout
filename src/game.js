@@ -2,7 +2,7 @@ import Brick from './brick';
 import { randomColor } from './utils';
 import Ball from './ball';
 import Paddle from './paddle';
-import { BRICK_AUDIO } from './audio';
+import { BRICK_AUDIO, BRICK_WORDS } from './audio';
 
 const COLORS = [
     "green",
@@ -48,7 +48,8 @@ class Game {
             this.bricks.push(new Brick({
                 "color": COLORS[colorIndex],
                 "pos": [brickX, brickY],
-                "sound": BRICK_AUDIO[randNum]
+                "sound": BRICK_AUDIO[randNum],
+                "word": BRICK_WORDS[randNum]
             }, this))
             brickX += 70;
         }

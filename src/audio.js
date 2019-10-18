@@ -27,3 +27,25 @@ export const WIN_AUDIO = "https://musical-breakout-js.s3.us-east-2.amazonaws.com
 
 export const LOSE_AUDIO = "https://musical-breakout-js.s3.us-east-2.amazonaws.com/GameOver2.mp3"
 
+export const BRICK_WORDS = [
+    "Ohh",
+    "Ohh",
+    "Ohh",
+    "Ohh",
+    "Ohh",
+    "Oh Yeaahh!",
+    "oOo-Ohhh",
+    "Oh-ohhh",
+    "Whoaa",
+    "Ohh",
+    "Ahh!",
+    "Ohh",
+    "Ohh",
+    "Ohh",
+    "Ohh",
+    "Ohh",
+    "Ohh",
+    "Ohh",
+    "Ohh",
+    "Ohh"
+]
