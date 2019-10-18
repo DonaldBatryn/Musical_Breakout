@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let gameV = new GameView(new Game(), ctx, canvas);
     gameV.start();
 
-    let playAgain = document.getElementById("play-again");
+    let playAgain = document.getElementsByClassName("play-again-button")[0];
     playAgain.addEventListener("click", (e) => {
         e.stopPropagation();
         let nextGame = new GameView(new Game(), ctx, canvas)
