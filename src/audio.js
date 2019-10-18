@@ -27,10 +27,3 @@ export const WIN_AUDIO = "https://musical-breakout-js.s3.us-east-2.amazonaws.com
 
 export const LOSE_AUDIO = "https://musical-breakout-js.s3.us-east-2.amazonaws.com/GameOver.mp3"
 
-let player1 = document.getElementById("audio-1")
-let player2 = document.getElementById("audio-2")
-let player3 = document.getElementById("audio-3")
-let player4 = document.getElementById("audio-4")
-let player5 = document.getElementById("win-lose-audio")
-
-export const ALL_AUDIO_PLAYERS = [player1, player2, player3, player4, player5]

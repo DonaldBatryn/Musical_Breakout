@@ -3,8 +3,6 @@ import { randomColor } from './utils';
 import Ball from './ball';
 import Paddle from './paddle';
 import { BRICK_AUDIO } from './audio';
-// import Pointer from './pointer';
-
 
 const COLORS = [
     "green",
@@ -42,7 +40,6 @@ class Game {
         let brickY = 100;
         while (this.bricks.length < this.NUM_BRICKS) {
             let randNum = Math.floor(Math.random() * BRICK_AUDIO.length)
-            console.log(randNum)
             let colorIndex = this.bricks.length % 11
             if (brickX === 800){
                 brickX = 100
