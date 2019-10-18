@@ -150,13 +150,33 @@ a{
     position: absolute;
     width: 900px;
     height: 650px;
-    background-color: pink;
+    /* background-color: pink; */
     z-index: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .play-again-button{
-    background-color: pink;
-    z-index: 4;
+    margin-bottom: 60px;
+    width: 250px;
+    height: 60px;
+    color: whitesmoke;
+    font-size: 30px;
+    border-radius: 5px;
+    background-color: rgba(241, 3, 3, 0.5);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: -2px 5px 2px gray;
+    transition: all 0.1s ease-in-out;
+    z-index: 5;
+}
+
+.play-again-button:hover{
+    box-shadow: -4px 7px 4px gray;
 }
 
 .hidden{
