@@ -1,7 +1,7 @@
 import { WIN_AUDIO, LOSE_AUDIO } from './audio';
 
-const muteImage = "https://musical-breakout-js.s3.us-east-2.amazonaws.com/kisspng-computer-icons-sound-mute-button-5b165543154d96.8058417315281902750873.png"
-const soundImage = "https://musical-breakout-js.s3.us-east-2.amazonaws.com/kisspng-volume-computer-icons-sound-icon-volume-5adc5b8bf3c9e0.3983945915243907959986.png"
+const muteImage = "https://musical-breakout-js.s3.us-east-2.amazonaws.com/mute.png"
+const soundImage = "https://musical-breakout-js.s3.us-east-2.amazonaws.com/volume.png"
 
 class GameView {
     constructor(game, ctx, canvas){ // took out pointerCtx
@@ -43,6 +43,7 @@ class GameView {
     stop(){
         clearInterval(this.interval);
         this.game.NUM_LIVES -= 1;
+        document.getElementById("lives").innerHTML = `LIVES: ${this.game.NUM_LIVES}`
         this.game.resetBallPaddle(this.ctx);
         if (this.game.NUM_LIVES > 0){
             this.game.roundOver = false;
@@ -58,7 +59,7 @@ class GameView {
         that.ctx.clearRect(15, 400, 870, 240)
         // that.pointerCtx.clearRect(15, 400, 870, 240)
         this.ctx.font = "90px Apercu";
-        this.ctx.fillStyle = "red"
+        this.ctx.fillStyle = "#bf74f1"
         this.ctx.fillText("GAME OVER", 180, 410)
         setTimeout(() => {
             let endPlayer = document.getElementById("win-lose-audio");
@@ -134,22 +135,27 @@ class GameView {
                 gameV.game.ball.launch([X, Y])
             }
         })
-        let volButton = document.getElementById("toggle-sound");
         let player1 = document.getElementById("audio-1")
         let player2 = document.getElementById("audio-2")
         let player3 = document.getElementById("audio-3")
         let player4 = document.getElementById("audio-4")
         let player5 = document.getElementById("win-lose-audio")
-
+        
         const ALL_AUDIO_PLAYERS = [player1, player2, player3, player4, player5]
+        
+        let volButton = document.getElementById("toggle-sound");
         volButton.addEventListener("click", (e) => {
             e.stopPropagation();
             ALL_AUDIO_PLAYERS.forEach(player => {
                
                 if (player.volume === 1){
+                    console.log("volume is up")
+                    
                     player.volume = 0;
                     volButton.src = muteImage;
                 } else {
+                    console.log("volume is down")
+                    
                     player.volume = 1;
                     volButton.src = soundImage;
                 }

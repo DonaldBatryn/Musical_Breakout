@@ -109,7 +109,8 @@ class Game {
         let idx = this.bricks.indexOf(brick);
         this.bricks.splice(idx, 1);
         this.score += 100;
-        if (this.bricks.length === 0){
+        document.getElementById("score").innerHTML = `SCORE: ${this.score}`;
+        if (this.bricks.length === 69){
             this.win = true
         }
         let currentX = this.ball.vel[0]

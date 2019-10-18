@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
         e.stopPropagation();
         let nextGame = new GameView(new Game(), ctx, canvas)
         nextGame.menuOpen = false;
+        document.getElementById("score").innerHTML = "SCORE: 0"
+        document.getElementById("lives").innerHTML = "LIVES: 3"
         nextGame.start();
     })
     
