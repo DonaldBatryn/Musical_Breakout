@@ -20,12 +20,11 @@ a{
 
 #game-canvas{
     position: absolute;
-    
 }
 
 .game-menu{
     position: absolute;
-    width: 710px;
+    width: 780px;
     height: 490px;
     background-color: rgb(196, 195, 195);
     /* background-color: whitesmoke; */
@@ -86,14 +85,19 @@ a{
     justify-content: flex-start;
     text-align: left; */
 }
-/* .controls-menu h2, .controls-menu h3, .controls-menu h5 {
-    margin: 5px;
-} */
+
+.controls-header{
+    margin-left: 60px;
+}
+
+.to-move-paddle{
+    margin-right: 30px;
+}
 
 .arrow-div{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -105,10 +109,12 @@ a{
 .arrow-pointer-img{
     width: 15%;
     height: auto;
+    margin-left: 20px;
 }
 
 .spacebar-msg{
-    margin-top: 25px;
+    margin-top: 45px;
+    margin-left: 30px;
 }
 
 .menu-start{
@@ -138,6 +144,19 @@ a{
 
 .start-button:hover{
     box-shadow: -4px 7px 4px gray;
+}
+
+.play-again{
+    position: absolute;
+    width: 900px;
+    height: 650px;
+    background-color: pink;
+    z-index: 4;
+}
+
+.play-again-button{
+    background-color: pink;
+    z-index: 4;
 }
 
 .hidden{

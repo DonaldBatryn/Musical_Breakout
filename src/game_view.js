@@ -15,7 +15,8 @@ class GameView {
     start() {
         let that = this;
         that.bindKeyHandlers();
- 
+        let playAgainButton = document.getElementById("play-again");
+        playAgainButton.classList.add("hidden");
         let startButton = document.getElementById("start-button")
         startButton.addEventListener("click", (e) => {
             e.stopPropagation();
@@ -56,10 +57,16 @@ class GameView {
         this.ctx.font = "90px Apercu";
         this.ctx.fillStyle = "red"
         this.ctx.fillText("GAME OVER", 180, 410)
-        let endPlayer = document.getElementById("win-lose-audio");
-        endPlayer.setAttribute("src", LOSE_AUDIO);
-        endPlayer.play();
+        setTimeout(() => {
+            let endPlayer = document.getElementById("win-lose-audio");
+            endPlayer.setAttribute("src", LOSE_AUDIO);
+            endPlayer.play();
+            let playAgainButton = document.getElementById("play-again");
+            playAgainButton.classList.remove("hidden");
+        }, 750)
     }
+
+    
 
     win(){
         clearInterval(this.interval);
@@ -72,7 +79,9 @@ class GameView {
             let endPlayer = document.getElementById("win-lose-audio");
             endPlayer.setAttribute("src", WIN_AUDIO);
             endPlayer.play();
-        }, 1000)
+            let playAgainButton = document.getElementById("play-again");
+            playAgainButton.classList.remove("hidden");
+        }, 750)
     }
 
     keyDownHandler(e){
