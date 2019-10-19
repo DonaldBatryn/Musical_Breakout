@@ -1,5 +1,4 @@
 import Brick from './brick';
-import { randomColor } from './utils';
 import Ball from './ball';
 import Paddle from './paddle';
 import { BRICK_AUDIO, BRICK_WORDS } from './audio';
@@ -147,7 +146,5 @@ class Game {
     }
 }
 
-window.randomColor = randomColor;
-window.Game = Game;
 
 export default Game;

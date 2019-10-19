@@ -27,12 +27,9 @@ class Paddle {
             let paddleY = this.pos[1];
             let ballX = this.ball.pos[0] + vel[0];
             let ballY = this.ball.pos[1];
-            // let pointerX = this.pointer.pos[0] + vel[0];
-            // let pointerY = this.pointer.pos[1];
             if (paddleX < 25) {
                 paddleX = 25;
                 ballX = 63;
-                // pointerX = 63;
             }
             if (paddleX > 805) {
                 paddleX = 805;
