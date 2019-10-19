@@ -4,7 +4,7 @@ const muteImage = "https://musical-breakout-js.s3.us-east-2.amazonaws.com/mute.p
 const soundImage = "https://musical-breakout-js.s3.us-east-2.amazonaws.com/volume.png"
 
 class GameView {
-    constructor(game, ctx, canvas){ // took out pointerCtx
+    constructor(game, ctx, canvas){ 
         this.game = game;
         this.canvas = canvas;
         this.ctx = ctx;
@@ -13,6 +13,7 @@ class GameView {
         this.leftKey = false;
         this.menuOpen = true;
         this.volumeListener = (e) => {
+            e.stopPropagation();
             let volButton = document.getElementById("toggle-sound");
             let player1 = document.getElementById("audio-1")
             let player2 = document.getElementById("audio-2")
@@ -21,17 +22,12 @@ class GameView {
             let player5 = document.getElementById("win-lose-audio")
 
             const ALL_AUDIO_PLAYERS = [player1, player2, player3, player4, player5]
-            e.stopPropagation();
             ALL_AUDIO_PLAYERS.forEach(player => {
 
                 if (player.volume === 1) {
-                    console.log("turning volume down")
-
                     player.volume = 0;
                     volButton.src = muteImage;
                 } else {
-                    console.log("turning volume up")
-
                     player.volume = 1;
                     volButton.src = soundImage;
                 }
@@ -58,8 +54,8 @@ class GameView {
             blocker.classList.add("hidden")
         })
         this.interval = setInterval(function () {
-            that.game.draw(that.ctx); // took out pointerCtx
-            that.game.step(that.ctx); // took out pointerCtx
+            that.game.draw(that.ctx);
+            that.game.step(that.ctx);
             if (that.game.win){
                 that.win();
             } else if (that.game.roundOver){
@@ -99,15 +95,13 @@ class GameView {
         }, 750)
     }
 
-    
-
     win(){
         clearInterval(this.interval);
         this.game.draw(this.ctx)
         this.ctx.clearRect(15, 400, 870, 240)
         setTimeout(() => {
             this.ctx.font = "90px Apercu";
-            this.ctx.fillStyle = "rgba(230, 169, 40, 0.637)"
+            this.ctx.fillStyle = "rgba(219, 143, 219, 0.651)"
             this.ctx.fillText("YOU WIN!", 240, 410)
 
         }, 1700)
@@ -167,32 +161,8 @@ class GameView {
                 gameV.game.ball.launch([X, Y])
             }
         })
-        let player1 = document.getElementById("audio-1")
-        let player2 = document.getElementById("audio-2")
-        let player3 = document.getElementById("audio-3")
-        let player4 = document.getElementById("audio-4")
-        let player5 = document.getElementById("win-lose-audio")
-        
-        const ALL_AUDIO_PLAYERS = [player1, player2, player3, player4, player5]
 
         let volButton = document.getElementById("toggle-sound");
-        // this.volumeListener = volButton.addEventListener("click", (e) => {
-        //     e.stopPropagation();
-        //     ALL_AUDIO_PLAYERS.forEach(player => {
-               
-        //         if (player.volume === 1){
-        //             console.log("turning volume down")
-                    
-        //             player.volume = 0;
-        //             volButton.src = muteImage;
-        //         } else {
-        //             console.log("turning volume up")
-                    
-        //             player.volume = 1;
-        //             volButton.src = soundImage;
-        //         }
-        //     })
-        // })
         volButton.addEventListener("click", this.volumeListener);
     }
 }

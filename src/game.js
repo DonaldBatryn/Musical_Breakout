@@ -3,20 +3,6 @@ import Ball from './ball';
 import Paddle from './paddle';
 import { BRICK_AUDIO, BRICK_WORDS } from './audio';
 
-// const COLORS = [
-//     "rgba(204, 40, 245, 0.616)", //clear pink
-//     "rgba(255, 166, 0, 0.616)", //clear orange
-//     "rgba(63, 125, 241, 0.603)", //clear blue
-//     "rgba(128, 0, 128, 0.651)", //clear purple
-//     "lightblue",
-//     "rgba(230, 169, 40, 0.637)", //clear beige
-//     "violet",
-//     "rgba(128, 0, 128, 0.651)", // clear purple
-//     "rgba(231, 201, 31, 0.616)", // clear gold
-//     "rgba(152, 209, 228, 0.616)", // clear lightblue
-//     "pink"
-// ]
-
 const COLORS = [
     "rgba(255, 166, 0, 0.616)", //clear orange
     "rgba(230, 169, 40, 0.637)", //clear beige
@@ -88,7 +74,7 @@ class Game {
         ctx.fill();
     }
 
-    draw(ctx){ // took out pointerCtx
+    draw(ctx){
         ctx.clearRect(0, 0, 900, 650);
         this.drawBackground(ctx);
         this.bricks.forEach(brick => {
@@ -113,7 +99,7 @@ class Game {
         }
     }
 
-    step(ctx){ // took out pointerCtx
+    step(ctx){
         this.ball.move(ctx)
         this.paddle.move(this.paddleVel, ctx)
         this.checkCollisions(ctx)
@@ -125,7 +111,7 @@ class Game {
         this.bricks.splice(idx, 1);
         this.score += 100;
         document.getElementById("score").innerHTML = `SCORE: ${this.score}`;
-        if (this.bricks.length === 69){
+        if (this.bricks.length === 0){
             this.win = true
         }
         let currentX = this.ball.vel[0]

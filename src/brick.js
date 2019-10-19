@@ -65,12 +65,9 @@ class Brick {
             2 * Math.PI,
             false
         )
-        // ctx.strokeStyle = "rgba(100, 10, 100, 0.4)";
         ctx.strokeStyle = this.color;
         ctx.lineWidth = 6;
-        // ctx.fillStyle = "rgba(255, 255, 100, 0.4)";
         ctx.stroke();
-
     }
 }
 

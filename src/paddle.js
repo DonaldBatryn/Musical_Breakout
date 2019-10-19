@@ -1,14 +1,13 @@
 
 
 class Paddle {
-    constructor(game, ball){ // took out pointer
+    constructor(game, ball){ 
         this.game = game;
         this.color = "black";
         this.pos = [413, 606];
         this.dims = [75, 15];
         this.vel = [0, 0];
         this.ball = ball;
-        // this.pointer = pointer;
     }
 
     draw(ctx){
@@ -34,11 +33,9 @@ class Paddle {
             if (paddleX > 805) {
                 paddleX = 805;
                 ballX = 842;
-                // pointerX = 842;
             }
             this.pos = [paddleX, paddleY]
             this.ball.pos = [ballX, ballY]
-            // this.pointer.pos = [pointerX, pointerY]
             this.ball.draw(ctx)
             this.draw(ctx);
         } else {

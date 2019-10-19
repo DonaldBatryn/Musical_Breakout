@@ -23,9 +23,7 @@
     top: 50%;
     color: rgba(230, 169, 40, 0.637);
     position:absolute;
-    
     font-size: 100px;
-    /* opacity:0.3; */
     font-family: 'Orbitron', sans-serif;
     animation:move 2s linear infinite;
     z-index: 3;  
@@ -35,11 +33,10 @@
     min-width: 700px;
     top: 60%;
     color: rgba(63, 125, 241, 0.603);
-    color: rgba(219, 143, 219, 0.651);
+   
     position:absolute;
    
     font-size: 90px;
-    /* opacity:0.3; */
     font-family: 'Orbitron', sans-serif;
     animation:move 2s linear infinite;
     z-index: 3;  
@@ -51,7 +48,6 @@
     opacity:0;
   }
 	35% {
-		/* left: 41%;  */
 		left: 31%; 
 		-moz-transform:rotate(0deg);
 		-webkit-transform:rotate(0deg);
@@ -60,7 +56,6 @@
 		opacity:1;
 	}
 	65% {
-		/* left:59%;  */
 		left:49%; 
 		-moz-transform:rotate(0deg); 
 		-webkit-transform:rotate(0deg); 
