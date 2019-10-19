@@ -94,7 +94,7 @@ class GameView {
             let playAgainButton = document.getElementById("play-again");
             playAgainButton.classList.remove("hidden");
             this.ctx.font = "90px Apercu";
-            this.ctx.fillStyle = "#bf74f1"
+            this.ctx.fillStyle = "rgba(241, 3, 3, 0.5)";
             this.ctx.fillText("GAME OVER", 180, 410)
         }, 750)
     }
@@ -107,7 +107,7 @@ class GameView {
         this.ctx.clearRect(15, 400, 870, 240)
         setTimeout(() => {
             this.ctx.font = "90px Apercu";
-            this.ctx.fillStyle = "green"
+            this.ctx.fillStyle = "rgba(230, 169, 40, 0.637)"
             this.ctx.fillText("YOU WIN!", 240, 410)
 
         }, 1700)

@@ -13,8 +13,8 @@ class Paddle {
 
     draw(ctx){
         ctx.beginPath();
-        ctx.lineWidth = 4;
-        ctx.strokeStyle = this.color;
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = "black";
         ctx.fillStyle = this.color;
         ctx.rect(this.pos[0], this.pos[1], this.dims[0], this.dims[1]);
         ctx.stroke();

@@ -5,17 +5,17 @@ import Paddle from './paddle';
 import { BRICK_AUDIO, BRICK_WORDS } from './audio';
 
 const COLORS = [
-    "green",
-    "pink",
-    "yellow",
-    "blue",
-    "lightgray",
-    "red",
-    "orange",
+    "rgba(204, 40, 245, 0.616)", //clear pink
+    "rgba(255, 166, 0, 0.616)", //clear orange
+    "rgba(63, 125, 241, 0.603)", //clear blue
+    "rgba(128, 0, 128, 0.651)", //clear purple
+    "lightblue",
+    "rgba(230, 169, 40, 0.637)", //clear beige
     "violet",
-    "purple",
-    "gold",
-    "lightblue"
+    "rgba(128, 0, 128, 0.651)", // clear purple
+    "rgba(231, 201, 31, 0.616)", // clear gold
+    "rgba(152, 209, 228, 0.616)", // clear lightblue
+    "pink"
 ]
 
 class Game {

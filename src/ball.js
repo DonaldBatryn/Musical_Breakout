@@ -3,8 +3,8 @@ class Ball {
     constructor(game){
         this.pos = [450, 590];
         this.vel = [0, 0];
-        this.radius = 8;
-        this.color = "gray";
+        this.radius = 12;
+        this.color = "black";
         this.game = game;
         this.isCollidedWith = this.isCollidedWith.bind(this)
     }
@@ -19,8 +19,8 @@ class Ball {
             2 * Math.PI,
             false
         )
-        ctx.strokeStyle = this.color;
-        ctx.lineWidth = 10;
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 2;
         ctx.fillStyle = this.color;
         ctx.stroke();
         ctx.fill();

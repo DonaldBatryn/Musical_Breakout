@@ -8,24 +8,22 @@
 }
 
 .flyer-0{
-  
+    min-width: 700px;
     top: 70%;
     color: rgba(204, 40, 245, 0.616);
     position:absolute;
-  
-    font-size: 100px;
-    /* opacity:0.3; */
+    font-size: 80px;
     font-family: 'Orbitron', sans-serif;
     animation:move 2s linear infinite;
     z-index: 3;  
 }
 
 .flyer-1{
-  
+    min-width: 700px;
     top: 50%;
     color: rgba(230, 169, 40, 0.637);
     position:absolute;
-   
+    
     font-size: 100px;
     /* opacity:0.3; */
     font-family: 'Orbitron', sans-serif;
@@ -34,12 +32,13 @@
 }
 
 .flyer-2{
-  
+    min-width: 700px;
     top: 60%;
     color: rgba(63, 125, 241, 0.603);
+    color: rgba(128, 0, 128, 0.651);
     position:absolute;
    
-    font-size: 100px;
+    font-size: 90px;
     /* opacity:0.3; */
     font-family: 'Orbitron', sans-serif;
     animation:move 2s linear infinite;
@@ -52,7 +51,8 @@
     opacity:0;
   }
 	35% {
-		left: 41%; 
+		/* left: 41%;  */
+		left: 31%; 
 		-moz-transform:rotate(0deg);
 		-webkit-transform:rotate(0deg);
 		-o-transform:rotate(0deg);
@@ -60,7 +60,8 @@
 		opacity:1;
 	}
 	65% {
-		left:59%; 
+		/* left:59%;  */
+		left:49%; 
 		-moz-transform:rotate(0deg); 
 		-webkit-transform:rotate(0deg); 
 		-o-transform:rotate(0deg);
@@ -68,7 +69,7 @@
 		opacity:1;
 	}
 	100% {
-		left:100%; 
+		left:90%; 
 		-moz-transform:rotate(-180deg); 
 		-webkit-transform:rotate(-180deg); 
 		-o-transform:rotate(-180deg); 

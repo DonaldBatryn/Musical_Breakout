@@ -43,11 +43,11 @@ export const BRICK_WORDS = [
     "Ahh!",
     "Ohh",
     "Ohh",
+    "Ohh (ohh)",
     "Ohh",
+    "Ohh (ohh)",
     "Ohh",
-    "Ohh",
-    "Ohh",
-    "Ohh",
-    "Ohh",
-    "Ohh"
+    "Ohh (ohh)",
+    "Ohh (ohh)",
+    "Ohh (ohh)"
 ]
