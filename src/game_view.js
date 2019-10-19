@@ -94,7 +94,7 @@ class GameView {
             let playAgainButton = document.getElementById("play-again");
             playAgainButton.classList.remove("hidden");
             this.ctx.font = "90px Apercu";
-            this.ctx.fillStyle = "rgba(241, 3, 3, 0.5)";
+            this.ctx.fillStyle = "rgba(219, 143, 219, 0.651)";
             this.ctx.fillText("GAME OVER", 180, 410)
         }, 750)
     }
