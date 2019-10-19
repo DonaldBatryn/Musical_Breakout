@@ -84,18 +84,18 @@ class GameView {
 
     gameOver(){
         let that = this;
-        this.game.draw(this.ctx) // took out pointerCtx
+        this.game.draw(this.ctx)
         that.ctx.clearRect(15, 400, 870, 240)
-        // that.pointerCtx.clearRect(15, 400, 870, 240)
-        this.ctx.font = "90px Apercu";
-        this.ctx.fillStyle = "#bf74f1"
-        this.ctx.fillText("GAME OVER", 180, 410)
+
         setTimeout(() => {
             let endPlayer = document.getElementById("win-lose-audio");
             endPlayer.setAttribute("src", LOSE_AUDIO);
             endPlayer.play();
             let playAgainButton = document.getElementById("play-again");
             playAgainButton.classList.remove("hidden");
+            this.ctx.font = "90px Apercu";
+            this.ctx.fillStyle = "#bf74f1"
+            this.ctx.fillText("GAME OVER", 180, 410)
         }, 750)
     }
 
@@ -105,9 +105,12 @@ class GameView {
         clearInterval(this.interval);
         this.game.draw(this.ctx)
         this.ctx.clearRect(15, 400, 870, 240)
-        this.ctx.font = "90px Apercu";
-        this.ctx.fillStyle = "green"
-        this.ctx.fillText("YOU WIN!", 240, 410)
+        setTimeout(() => {
+            this.ctx.font = "90px Apercu";
+            this.ctx.fillStyle = "green"
+            this.ctx.fillText("YOU WIN!", 240, 410)
+
+        }, 1700)
         setTimeout(() => {
             let endPlayer = document.getElementById("win-lose-audio");
             endPlayer.setAttribute("src", WIN_AUDIO);

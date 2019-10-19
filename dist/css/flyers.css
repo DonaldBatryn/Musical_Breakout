@@ -1,18 +1,47 @@
 
 
 #flyer-background {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  /* z-index: 1; */
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
 }
 
-.flyer{
+.flyer-0{
+  
+    top: 40%;
+    color: rgba(204, 40, 245, 0.616);
     position:absolute;
-    width:20px;
-    height:36px;
-    opacity:0;
-    font-family:Helvetica, Arial, sans-serif;
+  
+    font-size: 100px;
+    /* opacity:0.3; */
+    font-family: 'Orbitron', sans-serif;
+    animation:move 2s linear infinite;
+    z-index: 3;  
+}
+
+.flyer-1{
+  
+    top: 50%;
+    color: rgba(230, 169, 40, 0.637);
+    position:absolute;
+   
+    font-size: 100px;
+    /* opacity:0.3; */
+    font-family: 'Orbitron', sans-serif;
+    animation:move 2s linear infinite;
+    z-index: 3;  
+}
+
+.flyer-2{
+  
+    top: 60%;
+    color: rgba(63, 125, 241, 0.603);
+    position:absolute;
+   
+    font-size: 100px;
+    /* opacity:0.3; */
+    font-family: 'Orbitron', sans-serif;
     animation:move 2s linear infinite;
     z-index: 3;  
 }

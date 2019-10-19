@@ -27,6 +27,7 @@ class Game {
         this.roundOver = false;
         this.score = 0;
         this.bricks = [];
+        this.brickRotation = 1;
         this.ball = new Ball(this);
         this.addBricks();
         this.inMotion = false;

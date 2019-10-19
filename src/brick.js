@@ -39,14 +39,14 @@ class Brick {
         }
         this.breakAnimation(ctx);
         this.createFlyer(this);
+        this.game.brickRotation += 1
     };
     
     createFlyer(brick){
         let flyerBackground = document.getElementById("flyer-background");
         let newFlyer = document.createElement('div');
         newFlyer.innerHTML = brick.word;
-        newFlyer.classList.add("flyer");
-        // newFlyer.setAttribute("id", brick.sound)
+        newFlyer.classList.add(`flyer-${this.game.brickRotation % 3}`);
         flyerBackground.appendChild(newFlyer);
         setTimeout(() => {
             newFlyer.parentNode.removeChild(newFlyer)
