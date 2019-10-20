@@ -25,17 +25,23 @@ class Brick {
         let player1 = document.getElementById("audio-1");
         let player2 = document.getElementById("audio-2");
         let player4 = document.getElementById("audio-4");
+        let player5 = document.getElementById("audio-5");
         if (player1.duration > 0 && !player1.paused){
             if (player2.duration > 0 && !player2.paused){
-                player4.setAttribute("src", this.sound)
-                player4.play()
+                if (player5.duration > 0 && !player5.paused){
+                    player4.setAttribute("src", this.sound);
+                    player4.play();
+                } else {
+                    player5.setAttribute("src", this.sound);
+                    player5.play();
+                }
             } else {
-                player2.setAttribute("src", this.sound)
-                player2.play()
+                player2.setAttribute("src", this.sound);
+                player2.play();
             }
         } else {
-            player1.setAttribute("src", this.sound)
-            player1.play()
+            player1.setAttribute("src", this.sound);
+            player1.play();
         }
         this.breakAnimation(ctx);
         this.createFlyer(this);

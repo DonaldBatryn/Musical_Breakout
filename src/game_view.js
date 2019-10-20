@@ -19,9 +19,10 @@ class GameView {
             let player2 = document.getElementById("audio-2")
             let player3 = document.getElementById("audio-3")
             let player4 = document.getElementById("audio-4")
-            let player5 = document.getElementById("win-lose-audio")
+            let player5 = document.getElementById("audio-5")
+            let player6 = document.getElementById("win-lose-audio")
 
-            const ALL_AUDIO_PLAYERS = [player1, player2, player3, player4, player5]
+            const ALL_AUDIO_PLAYERS = [ player1, player2, player3, player4, player5, player6 ]
             ALL_AUDIO_PLAYERS.forEach(player => {
 
                 if (player.volume === 1) {
