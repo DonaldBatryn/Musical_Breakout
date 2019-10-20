@@ -1,9 +1,11 @@
 
 export const BRICK_AUDIO = [
     "https://musical-breakout-js.s3.us-east-2.amazonaws.com/AltLowSixth.mp3",
-    "https://musical-breakout-js.s3.us-east-2.amazonaws.com/AltRoot.mp3",
+    // "https://musical-breakout-js.s3.us-east-2.amazonaws.com/AltRoot.mp3",
+    "https://musical-breakout-js.s3.us-east-2.amazonaws.com/Root.mp3",
     "https://musical-breakout-js.s3.us-east-2.amazonaws.com/AltSecond.mp3",
     "https://musical-breakout-js.s3.us-east-2.amazonaws.com/Fifth.mp3",
+    "https://musical-breakout-js.s3.us-east-2.amazonaws.com/LowSixth.mp3",
     "https://musical-breakout-js.s3.us-east-2.amazonaws.com/LowSixth.mp3",
     "https://musical-breakout-js.s3.us-east-2.amazonaws.com/OhYeahEightSix.mp3",
     "https://musical-breakout-js.s3.us-east-2.amazonaws.com/OhYeahEightSix.mp3",
@@ -29,6 +31,7 @@ export const WIN_AUDIO = "https://musical-breakout-js.s3.us-east-2.amazonaws.com
 export const LOSE_AUDIO = "https://musical-breakout-js.s3.us-east-2.amazonaws.com/GameOver2.mp3"
 
 export const BRICK_WORDS = [
+    "Ohh",
     "Ohh",
     "Ohh",
     "Ohh",

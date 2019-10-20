@@ -4,7 +4,12 @@
   "description": "classic breakout with custom sounds triggered by gameplay",
   "main": "index.js",
   "scripts": {
+    "postinstall": "webpack",
     "webpack": "webpack --watch --mode=development"
+  },
+  "engines": {
+    "node": "10.13.0",
+    "npm": "6.4.1"
   },
   "author": "",
   "license": "ISC",
