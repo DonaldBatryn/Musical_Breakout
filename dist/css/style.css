@@ -2,6 +2,7 @@
 @import "play-again.css";
 @import "game-info.css";
 @import "flyers.css";
+@import "end-msg.css";
 
 html, body, div, canvas {
     margin: 0;

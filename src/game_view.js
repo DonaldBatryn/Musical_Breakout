@@ -37,6 +37,10 @@ class GameView {
     }
 
     unMount(gameV){
+        let gameOverMsg = document.getElementById("game-over-msg");
+        gameOverMsg.classList.add("hidden")
+        let youWinMsg = document.getElementById("you-win-msg")
+        youWinMsg.classList.add("hidden")
         let volButton = document.getElementById("toggle-sound");
         volButton.removeEventListener("click", gameV.volumeListener);
     }
@@ -83,16 +87,14 @@ class GameView {
         let that = this;
         this.game.draw(this.ctx)
         that.ctx.clearRect(15, 400, 870, 240)
-
         setTimeout(() => {
             let endPlayer = document.getElementById("win-lose-audio");
             endPlayer.setAttribute("src", LOSE_AUDIO);
             endPlayer.play();
             let playAgainButton = document.getElementById("play-again");
             playAgainButton.classList.remove("hidden");
-            this.ctx.font = "90px Apercu";
-            this.ctx.fillStyle = "rgba(219, 143, 219, 0.651)";
-            this.ctx.fillText("GAME OVER", 180, 410)
+            let gameOverMsg = document.getElementById("game-over-msg");
+            gameOverMsg.classList.remove("hidden");
         }, 750)
     }
 
@@ -101,10 +103,8 @@ class GameView {
         this.game.draw(this.ctx)
         this.ctx.clearRect(15, 400, 870, 240)
         setTimeout(() => {
-            this.ctx.font = "90px Apercu";
-            this.ctx.fillStyle = "rgba(219, 143, 219, 0.651)"
-            this.ctx.fillText("YOU WIN!", 240, 410)
-
+            let youWinMsg = document.getElementById("you-win-msg")
+            youWinMsg.classList.remove("hidden")
         }, 1700)
         setTimeout(() => {
             let endPlayer = document.getElementById("win-lose-audio");

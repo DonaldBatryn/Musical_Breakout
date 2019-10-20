@@ -1,0 +1,38 @@
+
+.you-win-container{
+    position: absolute;
+    width: 900px;
+    height: 650px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.you-win{
+    color: rgba(219, 143, 219, 0.651);
+    z-index: 5;
+    font-family: 'Exo', sans-serif;
+    margin-top: 200px;
+    font-size: 90px;
+}
+
+.game-over-container{
+    position: absolute;
+    width: 900px;
+    height: 650px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.game-over{
+    color: rgba(219, 143, 219, 0.781);
+    z-index: 5;
+    font-family: 'Exo', sans-serif;
+    margin-top: 200px;
+    font-size: 90px;
+}
