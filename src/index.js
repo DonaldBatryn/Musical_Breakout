@@ -21,4 +21,4 @@ document.addEventListener("DOMContentLoaded", () => {
         nextGame.start();
     })
     
-})
+});
