@@ -28,9 +28,9 @@
 
 .player-info-container{
     padding-top: 20px;
-    right: calc((100vw - 900px)/2 + 580px);
+    right: calc((100vw - 900px)/2 + 610px);
     position: absolute;
-    width: 300px;
+    width: 270px;
     height: 650px;
     display: flex;
     flex-direction: row;
@@ -42,5 +42,9 @@
 }
 
 .lives-value{
-    margin-right: 15px;
+    margin: 0 15px 0 15px;
+}
+
+.score-value{
+    margin: 0 0 5px 0;
 }

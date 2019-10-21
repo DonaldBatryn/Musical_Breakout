@@ -33,7 +33,7 @@ class Game {
         this.paddle = new Paddle(this, this.ball); 
         this.paddleVel = [0, 0];
         this.win = false;
-        this.streak = 0;
+        this.streak = 1;
     }
 
     addBricks(){
@@ -89,14 +89,15 @@ class Game {
         for (let i = 0; i < this.bricks.length; i++) {
             let currentBrick = this.bricks[i]
             if (this.ball.isCollidedWith(currentBrick)) {
-                this.streak += 1;
                 currentBrick.collideWith(ctx);
+                this.streak += 0.5;
             } 
             if (this.ball.hitWall()) {
                 this.ball.bounce()
             }
             if (this.ball.hitPaddle(this.paddle)){
-                this.streak = 0;
+                this.streak = 1;
+                document.getElementById("bonus").innerHTML = `X${this.streak}`;
                 this.ball.paddleBounce(this.paddle)
             }
         }
@@ -114,6 +115,7 @@ class Game {
         this.bricks.splice(idx, 1);
         this.score += 100 * this.streak;
         document.getElementById("score").innerHTML = `SCORE: ${this.score}`;
+        document.getElementById("bonus").innerHTML = `X${this.streak}`;
         if (this.bricks.length === 0){
             this.win = true
         }
@@ -142,7 +144,7 @@ class Game {
         this.inMotion = false;
         this.ball = [];
         this.paddle = [];
-        this.streak = 0;
+        this.streak = 1;
         this.ball = new Ball(this);
         this.paddle = new Paddle(this, this.ball, this.pointer);
         this.ball.draw(ctx);
