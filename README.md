@@ -3,7 +3,7 @@
 
 Welcome to the `Musical Breakout` repo! This is my sonically pleasing version of the classic arcade game Breakout.
 
-https://donaldbatryn.github.io/Musical_Breakout/
+[Musical Breakout live](https://donaldbatryn.github.io/Musical_Breakout/)
 
 This game was made with the pure simplicity of HTML, CSS and JavaScript.
 
