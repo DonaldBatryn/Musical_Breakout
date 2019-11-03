@@ -1,5 +1,5 @@
 # Musical Breakout
-## JavaScript - HTML - CSS - Canvas - Logic Pro X
+## [JavaScript](https://www.javascript.com/) - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - [Canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) - [Logic Pro X](https://www.apple.com/logic-pro/)
 
 Welcome to the `Musical Breakout` repo! This is my sonically pleasing version of the classic arcade game Breakout.
 
